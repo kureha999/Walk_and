@@ -52,8 +52,8 @@ gem "mini_magick", "~> 4.11"
 gem "aws-sdk-s3", require: false
 # カレンダー用
 gem "fullcalendar-rails"
-# カレンダーのform用
-gem "simple_form"
+# ページネーション
+gem "kaminari"
 
 
 group :development, :test do
