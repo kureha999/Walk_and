@@ -52,8 +52,6 @@ gem "mini_magick", "~> 4.11"
 gem "aws-sdk-s3", require: false
 # カレンダー用
 gem "fullcalendar-rails"
-# カレンダーのform用
-gem "simple_form"
 
 
 group :development, :test do
@@ -61,7 +59,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
+  gem "brakeman", ">= 7.0.0", require: false
+
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
