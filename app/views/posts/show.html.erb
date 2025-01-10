@@ -1,6 +1,7 @@
 <% content_for :title do %>
 <%= @post.user.name %>の投稿詳細ページ
 <% end %>
+
 <h1 class="text-center text-3xl font-bold text-logo-brown bg-background-blue p-6 rounded-lg">投稿詳細</h1>
 
 <div class="mt-4 text-center">
@@ -9,13 +10,19 @@
 
 <div class="mt-4">
   <% if @post.image.attached? %>
-  <%= image_tag @post.image, class: "w-full h-auto" %>
+  <%= image_tag @post.image, class: "w-full h-auto rounded-lg shadow-md" %>
   <% else %>
   <!-- 画像が添付されていない場合の処理 -->
-  <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "w-full h-auto" %>
+  <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "w-full h-auto rounded-lg shadow-md" %>
   <% end %>
 </div>
 
-<div class="mt-4 p-6 bg-logo-brown text-cream">
-  <p><%= @post.body %></p>
+<div class="mt-4 p-6 bg-logo-brown text-text-cream rounded-lg shadow-md">
+  <p class="whitespace-pre-line"><%= @post.body %></p>
 </div>
+
+<!-- コメント一覧 -->
+<%= render 'comments/comment_list', post: @post %>
+
+<!-- コメントフォーム -->
+<%= render 'comments/comment_form', post: @post %>
