@@ -1,0 +1,23 @@
+<div class="mt-8 bg-background-blue p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-logo-brown mb-4">コメント一覧</h2>
+  <% if @post.comments.any? %>
+  <div class="space-y-4">
+    <% @post.comments.each do |comment| %>
+    <div class="bg-white p-4 rounded-lg shadow flex justify-between items-start">
+      <div>
+        <p class="font-bold text-logo-brown"><%= comment.user.name %></p>
+        <p class="text-footer-color mt-2 whitespace-pre-line"><%= comment.body %></p>
+      </div>
+      <% if comment.user == current_user %>
+      <div class="text-text-cream px-4 py-2 mt-2 flex justify-end">
+        <%= link_to '編集', edit_post_comment_path(@post, comment), class: "rounded-lg bg-logo-brown px-4 py-2 hover:underline", style: "margin-right: 8px;" %>
+        <%= link_to '削除', post_comment_path(@post, comment), method: :delete, class: "rounded-lg bg-logo-brown  px-4 py-2 hover:underline" %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% else %>
+  <p class="text-footer-color">まだコメントがありません。</p>
+  <% end %>
+</div>

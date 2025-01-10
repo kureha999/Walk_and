@@ -1,0 +1,13 @@
+<h1 class="text-2xl font-bold text-logo-brown">コメントを編集</h1>
+
+<%= form_with(model: [@post, @comment], local: true) do |form| %>
+<div class="mt-4">
+  <%= form.label :body, 'コメント内容', class: 'block text-sm font-medium text-logo-brown' %>
+  <%= form.text_area :body, class: 'block w-full mt-1 p-2 border border-gray-300 rounded-lg' %>
+</div>
+
+<div class="mt-6 flex justify-between">
+  <%= link_to 'キャンセル', post_path(@post), class: 'text-logo-brown underline' %>
+  <%= form.submit '更新', class: 'bg-logo-brown text-text-cream px-4 py-2 rounded-lg' %>
+</div>
+<% end %>

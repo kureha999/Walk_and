@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # 日付ごとのイベント詳細のルートを `resources :events` の外に定義
   get "events/dates/:date", to: "events#date_details", as: "event_date"
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: %i[create edit update destroy]
+  end
 
   resources :events
 
