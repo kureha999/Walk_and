@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root "posts#index"
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "omniauth_callbacks"
+    # passwords: "users/passwords",              #パスワード再設定用
+    omniauth_callbacks: "omniauth_callbacks" # LINEログイン用
   }
 
   # 日付ごとのイベント詳細のルートを `resources :events` の外に定義

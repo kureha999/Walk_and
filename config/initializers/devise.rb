@@ -313,4 +313,6 @@ Devise.setup do |config|
 
   # LINEログインの設定
   config.omniauth :line, ENV["LINE_KEY"], ENV["LINE_SECRET"]
+  # パスワード再設定用
+  config.mailer_sender = ENV["MAILER_SENDER"]
 end
