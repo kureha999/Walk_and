@@ -4,15 +4,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_header
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :require_login, unless: :devise_controller?
 
   private
-
-  def require_login
-    unless user_signed_in?
-      redirect_to new_user_session_path, alert: "ログインが必要です。"
-    end
-  end
 
   def set_header
     if user_signed_in?
