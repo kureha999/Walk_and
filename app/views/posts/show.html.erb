@@ -11,7 +11,7 @@
 
 <% if @post.liked_by?(current_user) %>
 <p>
-  <%= link_to post_likes_path(@post), method: :delete, data: { turbo: false } do %>
+  <%= link_to post_like_path(@post), method: :delete, data: { turbo: false } do %>
   <i class="fa-solid fa-heart fa-2x" style="color: #ff0088;"></i>
   <%= @post.likes.count %> いいね
   <% end %>
