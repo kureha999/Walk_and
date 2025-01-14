@@ -19,6 +19,7 @@ class Post < ApplicationRecord
   # end
 
   def liked_by?(user)
+    return false if user.nil?
     likes.exists?(user_id: user.id)
   end
 
