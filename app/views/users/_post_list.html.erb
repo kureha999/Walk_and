@@ -7,7 +7,7 @@
       </div>
       <div class="mt-0">
         <% if post.image.attached? %>
-        <%= link_to post_path(post) do %>
+        <%= link_to post_path(post, previous_url: session[:previous_url]) do %>
         <%= image_tag post.image, class: "rounded-lg shadow-lg w-full" %>
         <% end %>
         <% else %>
