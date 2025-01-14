@@ -10,38 +10,7 @@
 
 <div class="flex justify-center space-x-4 mt-4">
   <%= link_to "自分の投稿一覧", mypage_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-  <%= link_to "いいね欄（仮）", "#", class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+  <%= link_to "いいね一覧", mypage_likes_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
 </div>
 
-<div class="space-y-4 mt-8">
-  <% @posts.each do |post| %>
-  <div class="p-4 w-full bg-white shadow-lg">
-    <!-- 投稿コンテンツ -->
-    <div class="px-6">
-      <!-- 投稿者名の部分 -->
-      <div class="bg-background-blue text-logo-brown font-bold text-xl text-center py-2">
-        <%= post.user.name %>
-      </div>
-
-      <!-- 画像部分 -->
-      <div class="mt-0">
-        <% if post.image.attached? %>
-        <%= link_to post_path(post) do %>
-        <%= image_tag post.image, class: "rounded-lg shadow-lg w-full" %>
-        <% end %>
-        <% else %>
-        <!-- 画像が添付されていない場合の処理 -->
-        <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "rounded-lg shadow-lg w-full" %>
-        <% end %>
-      </div>
-
-      <!-- ボタン部分 -->
-      <div class="bg-logo-brown text-text-cream px-4 py-2 mt-2 flex justify-end">
-        <%= link_to "編集", edit_post_path(post), class: "underline mr-4" %>
-        <%= link_to "削除", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？", turbo: false }, class: "underline mr-4" %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
-<%= paginate @posts %>
+<%= render "post_list", posts: @posts || @liked_posts %>
