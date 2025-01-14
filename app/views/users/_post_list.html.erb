@@ -1,0 +1,25 @@
+<div class="space-y-4 mt-8">
+  <% posts.each do |post| %>
+  <div class="p-4 w-full bg-white shadow-lg">
+    <div class="px-6">
+      <div class="bg-background-blue text-logo-brown font-bold text-xl text-center py-2">
+        <%= post.user.name %>
+      </div>
+      <div class="mt-0">
+        <% if post.image.attached? %>
+        <%= link_to post_path(post) do %>
+        <%= image_tag post.image, class: "rounded-lg shadow-lg w-full" %>
+        <% end %>
+        <% else %>
+        <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "rounded-lg shadow-lg w-full" %>
+        <% end %>
+      </div>
+      <div class="bg-logo-brown text-text-cream px-4 py-2 mt-2 flex justify-end">
+        <%= link_to "編集", edit_post_path(post), class: "underline mr-4" %>
+        <%= link_to "削除", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？", turbo: false }, class: "underline mr-4" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= paginate posts %>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :events
 
   get "mypage", to: "users#show", as: "mypage"
+  get "mypage/likes", to: "users#likes", as: "mypage_likes"
 
   # begin 初期Routes --------------------------------------------------------------
 
