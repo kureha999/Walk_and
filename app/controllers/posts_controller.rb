@@ -22,7 +22,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    session[:previous_url] = params[:previous_url] if params[:previous_url].present?
+  end
 
   def edit; end
 

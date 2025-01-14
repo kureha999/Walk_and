@@ -13,7 +13,7 @@
       <!-- 画像部分 -->
       <div class="mt-0">
         <% if post.image.attached? %>
-        <%= link_to post_path(post) do %>
+        <%= link_to post_path(post, previous_url: request.original_url) do %>
         <%= image_tag post.image, class: "rounded-lg shadow-lg w-full" %>
         <% end %>
         <% else %>
