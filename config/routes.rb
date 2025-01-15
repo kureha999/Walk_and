@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  authenticated :user do
+    root "posts#index", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root "tops#index", as: :unauthenticated_root
+  end
 
   devise_for :users, controllers: {
     # passwords: "users/passwords",              #パスワード再設定用
