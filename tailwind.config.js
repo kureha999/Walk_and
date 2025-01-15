@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        'kosugi': ['"Kosugi Maru"', 'sans-serif'],
         'dancing-script': ['"Dancing Script"', 'cursive'],
         'edu-au': ['"Edu AU VIC WA NT Pre"', 'sans-serif'],
       },
