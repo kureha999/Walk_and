@@ -41,7 +41,7 @@ class LineBotController < ApplicationController
     user = User.find_by(uid: user_id)
 
     unless user
-      reply_message(event, "ユーザーが見つかりません。アカウントをアプリと連携してください。")
+      reply_message(event, "ユーザーが見つかりません。\nアカウントをアプリと連携してください。")
       return
     end
 
