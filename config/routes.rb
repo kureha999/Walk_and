@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :events
 
+  post "/line_bot/callback", to: "line_bot#callback"
+
   get "mypage", to: "users#show", as: "mypage"
   get "mypage/likes", to: "users#likes", as: "mypage_likes"
 
