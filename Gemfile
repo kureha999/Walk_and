@@ -42,6 +42,8 @@ gem "devise"
 # LIENログイン導入
 gem "omniauth-line"
 gem "omniauth-rails_csrf_protection"
+# LIENメッセージ
+gem "line-bot-api"
 # 環境変数を設定する
 gem "dotenv-rails"
 # Active Storageで画像のバリアントを生成するため
