@@ -66,9 +66,26 @@ class EventsController < ApplicationController
   def date_details
     @date = params[:date]
     Rails.logger.info "Date received: #{@date}"
+
+    # タイムゾーンの設定を確認
+    timezone = ActiveSupport::TimeZone["Asia/Tokyo"]
+
+    # @dateをタイムゾーン付きのDateTimeオブジェクトに変換
+    parsed_date = timezone.parse(@date)
+
+    unless parsed_date
+      Rails.logger.error "Invalid date format: #{@date}"
+      @events = []
+      return
+    end
+
+    # 範囲を指定してイベントを取得
+    start_of_day = parsed_date.beginning_of_day
+    end_of_day = parsed_date.end_of_day
+
     @events = current_user.events
-                            .where("DATE(time AT TIME ZONE 'UTC' AT TIME ZONE ?) = ?", "Asia/Tokyo", @date)
-                            .order(time: :asc)
+                          .where(time: start_of_day..end_of_day) # UTC時間帯で比較
+                          .order(time: :asc)
   end
 
   private
@@ -82,6 +99,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :event_type, :time)
+    params.require(:event).permit(:title, :event_type, :time, :comment)
   end
 end
