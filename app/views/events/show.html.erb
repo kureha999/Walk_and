@@ -5,7 +5,6 @@
 
 <p><strong>Type:</strong> <%= @event.event_type %></p>
 <p><strong>Time:</strong> <%= @event.time.strftime("%Y-%m-%d %H:%M") %></p>
-<p><strong>Comment:</strong> <%= @event.comment %></p>
 
 <div class="flex space-x-4">
   <%= link_to "戻る", events_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>

@@ -19,7 +19,6 @@
     <!-- ID を追加 -->
     <strong><%= event.title %></strong><br>
     <%= event.event_type %> - <%= l(event.time, format: :short) %><br>
-    <%= event.comment %>
     <div class="mt-2">
       <%= link_to "Edit", edit_event_path(event), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
       <%= link_to "Delete", event_path(event),
