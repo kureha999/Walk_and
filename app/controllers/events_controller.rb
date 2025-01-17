@@ -65,7 +65,6 @@ class EventsController < ApplicationController
 
   def date_details
     @date = params[:date]
-    Rails.logger.info "Date received: #{@date}"
 
     # タイムゾーンの設定を確認
     timezone = ActiveSupport::TimeZone["Asia/Tokyo"]
@@ -74,7 +73,6 @@ class EventsController < ApplicationController
     parsed_date = timezone.parse(@date)
 
     unless parsed_date
-      Rails.logger.error "Invalid date format: #{@date}"
       @events = []
       return
     end
