@@ -33,37 +33,51 @@ class LineBotController < ApplicationController
 
   private
 
+  # ユーザー状態を保存する簡易的なデータ構造（本番ではDBを使用するべき）
+  @@user_states = {}
+
   def handle_message(event)
-    user = User.find_by(uid: event["source"]["userId"])
+    user_id = event["source"]["userId"]
+    user = User.find_by(uid: user_id)
+
     unless user
       reply_message(event, "ユーザーが見つかりません。アカウントをアプリと連携してください。")
       return
     end
 
     message = event.message["text"]
-    if message.start_with?("[Walk]", "[Food]")
-      process_event_registration(event, user, message)
+
+    # ユーザー状態確認
+    if @@user_states[user_id]
+      process_event_registration(event, user, @@user_states[user_id], message)
+      @@user_states.delete(user_id) # 状態リセット
     else
-      reply_message(event, "登録形式が正しくありません。\n形式例: [Walk]散歩しました、[Food]ご飯を食べました")
+      case message
+      when /餌をあげた時間を記録/
+        @@user_states[user_id] = "Food"
+        reply_message(event, "タイトルを送信してください🍴")
+      when /お散歩を記録/
+        @@user_states[user_id] = "Walk"
+        reply_message(event, "タイトルを送信してください🦮")
+      else
+        reply_message(event, "登録形式が正しくありません。\n'餌をあげた時間を記録' や 'お散歩を記録' と送信してください。")
+      end
     end
   end
 
-  def process_event_registration(event, user, message)
+  def process_event_registration(event, user, event_type, title)
     begin
-      # メッセージ解析
-      event_type = message.include?("[Walk]") ? "Walk" : "Food"
-      title = message.gsub(/\[Walk\]|\[Food\]/, "").strip
       time = Time.zone.now
 
       # イベントを保存
       user.events.create!(
         event_type: Event.event_types[event_type],
-        title: title,
+        title: title.strip,
         time: time
       )
 
       # ユーザーに成功メッセージを返信
-      reply_message(event, "イベントを登録しました！\n種別: #{event_type}\n内容: #{title}")
+      reply_message(event, "イベントを登録しました😊\n種別: #{event_type}\nタイトル: #{title.strip}")
     rescue StandardError => e
       # エラーメッセージを返信
       reply_message(event, "イベント登録に失敗しました。\nエラー: #{e.message}")
