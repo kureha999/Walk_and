@@ -9,18 +9,16 @@ class Post < ApplicationRecord
   validates :image, presence: true, unless: :image_optional?
   validate :image_content_type
 
-  # JPEGまたはPNG形式の画像に対して、幅200px・高さ100px指定
-  # ---- 今後サイズが確定したら使う(このままだとerrorが出る?) ----
-  # def image_as_thumbnail
-  #   # 画像が添付されていて、画像形式が適切であるかチェック
-  #   return unless image.attached? && image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
-  #   # 画像が添付されている場合にのみ variant を処理
-  #   image.variant(resize_to_fill: [800, 300]).processed
-  # end
-
+  # いいね機能
   def liked_by?(user)
     return false if user.nil?
     likes.exists?(user_id: user.id)
+  end
+
+  # リサイズ用のバリアント(品質90に設定)
+  def resized_image
+    return unless image.attached?
+    image.variant(resize_to_fill: [ 300, 300 ]) # 幅300px、高さ300pxにリサイズ
   end
 
   private
@@ -28,7 +26,6 @@ class Post < ApplicationRecord
   def image_optional?
     body.blank? # 本文が空でない場合のみ画像を必須にする
   end
-end
 
   # JPEG, PNG, GIF, HEIC以外の形式の場合、エラー
   def image_content_type
@@ -36,11 +33,4 @@ end
       errors.add(:image, "：対応していないファイル形式です。JPEG, PNG, GIF, HEICのみアップロード可能です。")
     end
   end
-
-# 画像のサイズが1MBを超える場合、エラーを発生
-# ---- 画像サイズが大きい場合こちらでmegabyteを調節できるのか？今後調査 ----
-# def image_size
-#   if image.attached? && image.blob.byte_size > 1.megabytes
-#     errors.add(:image, "：1MB以下のファイルをアップロードしてください。")
-#   end
-# end
+end
