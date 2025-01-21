@@ -6,7 +6,7 @@
     <!-- 投稿コンテンツ -->
     <div class="px-6">
       <!-- 投稿者名の部分 -->
-      <div class="bg-background-blue text-logo-brown font-bold text-xl text-center py-2">
+      <div class="bg-background-blue text-logo-brown font-bold text-xl text-center py-2 rounded-lg shadow-lg">
         <%= post.user.name %>
       </div>
 
@@ -14,7 +14,7 @@
       <div class="mt-0">
         <% if post.image.attached? %>
         <%= link_to post_path(post, previous_url: request.original_url) do %>
-        <%= image_tag post.resized_image, class: "rounded-lg shadow-lg w-full" %>
+        <%= image_tag post.resized_image, class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
         <% end %>
         <% else %>
         <!-- 画像が添付されていない場合の処理 -->
