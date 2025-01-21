@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   # リサイズ用のバリアント(品質90に設定)
   def resized_image
     return unless image.attached?
-    image.variant(resize_to_fill: [ 300, 300 ], saver: { quality: 95 }) # 幅300px、高さ300pxにリサイズ
+    image.variant(resize_to_fill: [ 600, 600 ], saver: { quality: 90, interlace: "plane" })
   end
 
   private
