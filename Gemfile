@@ -56,6 +56,8 @@ gem "aws-sdk-s3", require: false
 gem "fullcalendar-rails"
 # ページネーション
 gem "kaminari"
+# OGP
+gem "meta-tags"
 
 
 group :development, :test do
