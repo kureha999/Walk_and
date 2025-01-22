@@ -1,16 +1,22 @@
-<% content_for :title, "イベント編集ページ" %>
+<% content_for :title, t('events.edit.header')%>
 <%= form_with(model: @event, local: true) do |form| %>
 <div class="mb-4">
-  <%= form.label :title, "Title" %>
+  <%= form.label :title, t('events.edit.title') %>
   <%= form.text_field :title, class: "border rounded p-2 w-full" %>
 </div>
 <div class="mb-4">
-  <%= form.label :event_type, "Event Type" %>
+  <%= form.label :event_type, t('events.edit.type') %>
   <%= form.select :event_type, Event.event_types.keys.map { |key| [key.humanize.capitalize, key] }, {}, class: "border rounded p-2 w-full" %>
 </div>
 <div class="mb-4">
-  <%= form.label :time, "Time" %>
+  <%= form.label :time, t('events.edit.time') %>
   <%= form.datetime_local_field :time, value: @event.time, class: "border rounded p-2 w-full" %>
 </div>
-<%= form.submit "Create Event", class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+<%= form.submit t('events.edit.submit'), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
 <% end %>
+
+<div style="margin-right: auto; margin-left: 1rem;">
+  <%= link_to event_date_path(@event) , data: { turbo: false } do %>
+  <i class="fa-solid fa-arrow-left fa-2x text-logo-brown"></i>
+  <% end %>
+</div>

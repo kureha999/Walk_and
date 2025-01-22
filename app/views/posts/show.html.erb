@@ -1,5 +1,5 @@
 <% content_for :title do %>
-<%= @post.user.name %>の投稿詳細ページ
+<%= @post.user.name %><%= t('posts.show.title') %>
 <% end %>
 
 
@@ -12,7 +12,7 @@
   </div>
   <!-- 投稿者名 -->
   <p class="font-semibold text-xl text-logo-brown absolute" style="left: 50%; transform: translateX(-50%);">
-    投稿者: <%= @post.user.name %>
+    <%= t('posts.show.author') %><%= @post.user.name %>
   </p>
   <!-- いいねボタン -->
   <div style="margin-left: auto; margin-right: 1rem;">
@@ -25,7 +25,7 @@
   <%= image_tag @post.image, class: "w-full h-auto rounded-lg shadow-md" %>
   <% else %>
   <!-- 画像が添付されていない場合の処理 -->
-  <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "w-full h-auto rounded-lg shadow-md" %>
+  <%= image_tag 'walk_top.jpg', alt: t('posts.show.default_image_alt'), class: "w-full h-auto rounded-lg shadow-md" %>
   <% end %>
 </div>
 

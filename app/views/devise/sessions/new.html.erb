@@ -1,28 +1,30 @@
-<% content_for :title, "ログインページ" %>
+<% content_for :title, t('devise.sessions.header') %>
 <div class="bg-text-cream">
   <div class=" max-w-md mx-auto p-8 bg-logo-brown rounded-lg shadow-sm">
-    <h2 class="text-2xl font-semibold text-white mb-8 text-center">ログイン</h2>
+    <h2 class="text-2xl font-semibold text-white mb-8 text-center">
+      <%= t('devise.sessions.title') %>
+    </h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
     <div class="space-y-2">
-      <%= f.label :email, "メールアドレス", class: "block text-sm font-medium text-text-cream" %>
+      <%= f.label :email, t('devise.sessions.email'), class: "block text-sm font-medium text-text-cream" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com", class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
     </div>
 
     <div class="space-y-2">
-      <%= f.label :password, "パスワード", class: "block text-sm font-medium text-text-cream" %>
+      <%= f.label :password, t('devise.sessions.password'), class: "block text-sm font-medium text-text-cream" %>
       <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
     <div class="flex items-center">
       <%= f.check_box :remember_me, class: "h-4 w-4 text-green-400 focus:ring-green-200 border-rose-200 rounded" %>
-      <%= f.label :remember_me, "ログイン状態を保持する", class: "ml-2 block text-sm text-text-cream" %>
+      <%= f.label :remember_me, t('devise.sessions.remember_me'), class: "ml-2 block text-sm text-text-cream" %>
     </div>
     <% end %>
 
     <div class="actions">
-      <%= f.submit "ログイン", class: "w-full bg-background-blue text-white py-2 px-4 rounded-md hover:bg-green-500 transition-colors duration-200" %>
+      <%= f.submit t('devise.sessions.submit'), class: "w-full bg-background-blue text-white py-2 px-4 rounded-md hover:bg-green-500 transition-colors duration-200" %>
     </div>
     <% end %>
 

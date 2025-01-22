@@ -58,6 +58,8 @@ gem "fullcalendar-rails"
 gem "kaminari"
 # OGP
 gem "meta-tags"
+# 日本語化
+gem "rails-i18n"
 
 
 group :development, :test do

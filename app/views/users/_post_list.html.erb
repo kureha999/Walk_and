@@ -8,15 +8,15 @@
       <div class="mt-0">
         <% if post.image.attached? %>
         <%= link_to post_path(post, previous_url: session[:previous_url]) do %>
-        <%= image_tag post.image, class: "rounded-lg shadow-lg w-full" %>
+        <%= image_tag post.resized_image, class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
         <% end %>
         <% else %>
-        <%= image_tag 'walk_top.jpg', alt: 'デフォルト画像', class: "rounded-lg shadow-lg w-full" %>
+        <%= image_tag 'walk_top.jpg', alt: t('users.post_list.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>
         <% end %>
       </div>
       <div class="bg-logo-brown text-text-cream px-4 py-2 mt-2 flex justify-end">
-        <%= link_to "編集", edit_post_path(post), class: "underline mr-4" %>
-        <%= link_to "削除", post_path(post), method: :delete, data: { confirm: "本当に削除しますか？", turbo: false }, class: "underline mr-4" %>
+        <%= link_to t('users.post_list.edit'), edit_post_path(post), class: "underline mr-4" %>
+        <%= link_to t('users.post_list.delete'), post_path(post), method: :delete, data: { confirm: t('users.post_list.delete_confirm'), turbo: false }, class: "underline mr-4" %>
       </div>
     </div>
   </div>
