@@ -24,5 +24,6 @@ module WalkAnd
     config.time_zone = "Asia/Tokyo"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.default_locale = :ja
   end
 end

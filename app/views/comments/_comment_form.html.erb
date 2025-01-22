@@ -1,12 +1,14 @@
 <div class="mt-8 bg-background-blue p-6 rounded-lg shadow-md">
-  <h2 class="text-2xl font-bold text-logo-brown mb-4">コメントを追加する</h2>
+  <h2 class="text-2xl font-bold text-logo-brown mb-4">
+    <%= t('comments.form.title') %>
+  </h2>
   <%= form_with(model: [@post, Comment.new], local: true) do |f| %>
   <div class="mb-4">
-    <%= f.label :body, "コメント内容", class: "block text-sm font-medium text-logo-brown" %>
+    <%= f.label :body, t('comments.form.body'), class: "block text-sm font-medium text-logo-brown" %>
     <%= f.text_area :body, rows: 3, class: "block w-full mt-1 rounded-md border-logo-brown shadow-sm focus:ring-logo-brown focus:border-logo-brown" %>
   </div>
   <div class="flex justify-end">
-    <%= f.submit "コメントする", class: "px-4 py-2 bg-logo-brown text-text-cream rounded-lg hover:bg-footer-color" %>
+    <%= f.submit t('comments.form.submit'), class: "px-4 py-2 bg-logo-brown text-text-cream rounded-lg hover:bg-footer-color" %>
   </div>
   <% end %>
 </div>

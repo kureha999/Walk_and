@@ -1,12 +1,11 @@
 <% content_for :title do %>
-<%= @event.title %>詳細ページ
+<%= @event.title %><%= t('events.show.header') %>
 <% end %>
-<h1><strong>Title:</strong><%= @event.title %></h1>
+<h1><strong><%= t('events.show.title') %></strong><%= @event.title %></h1>
 
-<p><strong>Type:</strong> <%= @event.event_type %></p>
-<p><strong>Time:</strong> <%= @event.time.strftime("%Y-%m-%d %H:%M") %></p>
+<p><strong><%= t('events.show.type') %></strong> <%= @event.event_type %></p>
+<p><strong><%= t('events.show.time') %></strong> <%= @event.time.strftime("%Y-%m-%d %H:%M") %></p>
 
 <div class="flex space-x-4">
-  <%= link_to "戻る", events_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-  <%# ここに削除か編集どっちか実装するかも？ %>
+  <%= link_to  t('events.show.back'), events_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
 </div>

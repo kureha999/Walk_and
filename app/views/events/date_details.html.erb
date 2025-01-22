@@ -1,34 +1,44 @@
 <% content_for :title do %>
-<%= @date %>の詳細ページ
+<%= @date %><%= t('events.data_details.title') %>
 <% end %>
-<div class="flex justify-between items-center">
-  <h1 class="text-xl font-bold"><%= @date %></h1>
-  <div class="flex space-x-4">
-    <!-- 横並びにするためのflexコンテナ -->
-    <%= link_to "戻る", events_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-    <%= link_to "追加する", new_event_path(date: @date), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-    <!-- 同じクラスを追加 -->
+
+<div class=" flex items-center relative bg-background-blue p-4">
+  <div style="margin-right: auto; margin-left: 1rem;">
+    <%= link_to events_path do %>
+    <i class="fa-solid fa-arrow-left fa-2x text-logo-brown"></i>
+    <% end %>
+  </div>
+  <% date_obj = Date.parse(@date) if @date.is_a?(String) %>
+  <div class="font-semibold text-xl text-logo-brown absolute" style="left: 50%; transform: translateX(-50%);">
+    <%= date_obj.strftime("%m-%d") %><%= t('events.data_details.title') %>
+  </div>
+  <div>
+    <%= link_to t('events.data_details.add'), new_event_path(date: @date), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
   </div>
 </div>
 
-<h2 class="mt-4 text-lg font-semibold">Events on <%= @date %></h2>
 <% if @events.any? %>
-<ul>
-  <% @events.each do |event| %>
-  <li id="<%= dom_id(event) %>" class="mb-4">
-    <!-- ID を追加 -->
-    <strong><%= event.title %></strong><br>
-    <%= event.event_type %> - <%= l(event.time, format: :short) %><br>
-    <div class="mt-2">
-      <%= link_to "Edit", edit_event_path(event), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-      <%= link_to "Delete", event_path(event),
-              method: :delete,
-              data: { turbo_stream: true},
-              class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-    </div>
-  </li>
-  <% end %>
-</ul>
+<div class="flex justify-center" style="margin-top: 16px;">
+  <!-- グリッドレイアウトで2列表示 -->
+  <ul style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; width: 100%;">
+    <% @events.each do |event| %>
+    <li id="<%= dom_id(event) %>" class="mb-4 bg-white shadow border border-gray-200 rounded p-4" style="text-align: center;">
+      <!-- カード全体をスタイル -->
+      <strong class="text-xl"><%= event.title %></strong><br>
+      <span><%= event.event_type %> - <%= event.time.strftime('%H:%M') %></span><br>
+      <div class="mt-2 flex justify-center space-x-2">
+        <%= link_to t('events.data_details.edit'), edit_event_path(event), class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+        <%= link_to t('events.data_details.delete'), event_path(event),
+                  method: :delete,
+                  data: { turbo_stream: true },
+                  class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow", style: "margin-left: 10px;" %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
 <% else %>
-<p>No events for this day.</p>
+<p class="text-center mt-4">
+  <%= t('events.data_details.No events for this day') %>
+</p>
 <% end %>

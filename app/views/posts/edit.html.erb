@@ -1,18 +1,20 @@
-<% content_for :title, "投稿編集ページ" %>
-<h1 class="text-center text-3xl font-bold text-cream bg-logo-brown p-6 rounded-lg">投稿を編集</h1>
+<% content_for :title, t('posts.edit.title') %>
+<h1 class="text-center text-3xl font-bold text-cream bg-logo-brown p-6 rounded-lg">
+  <%= t('posts.edit.header') %>
+</h1>
 
 <%= form_with(model: @post, local: true, html: { class: "mt-4 max-w-lg mx-auto" }) do |form| %>
 <div class="text-center">
-  <%= form.label :image, "画像を選択", class: "block text-xl text-cream" %>
+  <%= form.label :image, t('posts.edit.image_label'), class: "block text-xl text-cream" %>
   <%= form.file_field :image, class: "mt-2" %>
 </div>
 
 <div class="mt-4 text-center">
-  <%= form.label :body, "本文", class: "block text-xl text-cream" %>
+  <%= form.label :body, t('posts.edit.body_label'), class: "block text-xl text-cream" %>
   <%= form.text_area :body, rows: 4, class: "mt-2 p-2 w-full text-cream bg-background-blue" %>
 </div>
 
 <div class="mt-4 text-center">
-  <%= form.submit '更新する', class: "bg-background-blue text-cream py-2 px-4 rounded" %>
+  <%= form.submit t('posts.edit.submit_button'), class: "bg-background-blue text-cream py-2 px-4 rounded" %>
 </div>
 <% end %>

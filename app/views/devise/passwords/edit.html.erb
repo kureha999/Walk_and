@@ -1,26 +1,29 @@
+<% content_for :title, t('devise.passwords.edit.header') %>
 <div class="bg-text-cream">
   <div class="max-w-md mx-auto p-8 bg-logo-brown rounded-lg shadow-sm">
-    <h2 class="text-2xl font-semibold text-white mb-8 text-center">新しいパスワードに変更</h2>
+    <h2 class="text-2xl font-semibold text-white mb-8 text-center">
+      <%= t('devise.passwords.edit.title') %>
+    </h2>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "space-y-6" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="space-y-2">
-      <%= f.label :password, "新しいパスワード", class: "block text-sm font-medium text-text-cream" %>
+      <%= f.label :password, t('devise.passwords.edit.password'), class: "block text-sm font-medium text-text-cream" %>
       <% if @minimum_password_length %>
-      <em class="text-xs text-text-cream">(<%= @minimum_password_length %>文字以上)</em><br />
+      <em class="text-xs text-text-cream">(<%= @minimum_password_length %><%= t('devise.passwords.edit.minimum') %></em><br />
       <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: t('devise.passwords.edit.password'), class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
     </div>
 
     <div class="space-y-2">
-      <%= f.label :password_confirmation, "新しいパスワードの確認", class: "block text-sm font-medium text-text-cream" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
+      <%= f.label :password_confirmation, t('devise.passwords.edit.password_confirmation'), class: "block text-sm font-medium text-text-cream" %>
+      <%= f.password_field :password_confirmation, autocomplete: t('devise.passwords.edit.password_confirmation'), class: "w-full px-3 py-2 border border-rose-200 rounded-md focus:outline-none focus:ring-2 focus:ring-background-blue focus:border-background-blue bg-text-cream" %>
     </div>
 
     <div class="actions mt-4">
-      <%= f.submit "パスワードを変更する", class: "w-full bg-background-blue text-white py-2 px-4 rounded-md hover:bg-green-500 transition-colors duration-200" %>
+      <%= f.submit t('devise.passwords.edit.submit'), class: "w-full bg-background-blue text-white py-2 px-4 rounded-md hover:bg-green-500 transition-colors duration-200" %>
     </div>
     <% end %>
 

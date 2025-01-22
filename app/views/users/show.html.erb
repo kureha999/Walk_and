@@ -1,16 +1,16 @@
 <% content_for :title do %>
-<%= current_user.name %>のマイページ
+<%= current_user.name %><%= t('users.show.mypage') %>
 <% end %>
 <div class="bg-background-blue py-6 relative">
   <h1 class="text-center text-2xl font-bold text-logo-brown">
-    <%= current_user.name %> のマイページ
+    <%= current_user.name %><%= t('users.show.mypage') %>
   </h1>
-  <%= link_to "記録する", events_path, class: "absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+  <%= link_to t('users.show.record'), events_path, class: "absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
 </div>
 
 <div class="flex justify-center space-x-4 mt-4">
-  <%= link_to "自分の投稿一覧", mypage_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
-  <%= link_to "いいね一覧", mypage_likes_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+  <%= link_to  t('users.show.my_posts'), mypage_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
+  <%= link_to t('users.show.liked_posts'), mypage_likes_path, class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow" %>
 </div>
 
 <%= render "post_list", posts: @posts || @liked_posts %>

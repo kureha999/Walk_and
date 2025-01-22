@@ -2,13 +2,13 @@
   <div class="container mx-auto flex items-center justify-between px-4 max-w-[600px]">
     <!-- 左側: コピーライト -->
     <div class="text-sm font-dancing-script">
-      ©︎2024 Walk&
+      <%= t('shared.footer.copyright') %>
     </div>
     <!-- 右側: リンクボタン -->
     <div class="flex space-x-4 text-sm">
-      <%= link_to 'お問い合わせ', '#', class: 'hover:underline' %>
-      <%= link_to '利用規約', '#', class: 'hover:underline' %>
-      <%= link_to 'プライバシーポリシー', '#', class: 'hover:underline' %>
+      <%= link_to t('shared.footer.contact'), '#', class: 'hover:underline' %>
+      <%= link_to t('shared.footer.terms'), '#', class: 'hover:underline' %>
+      <%= link_to t('shared.footer.privacy_policy'), '#', class: 'hover:underline' %>
     </div>
   </div>
 </footer>
