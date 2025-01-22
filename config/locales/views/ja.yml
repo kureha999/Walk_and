@@ -59,7 +59,7 @@ ja:
       title: "カレンダーページ"
     show:
       header: "詳細ページ"
-      title: "タイトル:"
+      title: "タイトル"
       type: "種類:"
       time: "時間:"
       back: "戻る"
@@ -69,12 +69,14 @@ ja:
       type: "種類:"
       time: "時間:"
       submit: "更新する"
+      cancel: "キャンセル"
     new:
       header: "イベント追加ページ"
       title: "タイトル:"
       type: "種類:"
       time: "時間:"
       submit: "追加する"
+      cancel: "キャンセル"
   comments:
     form:
       title: "コメントを追加する"
@@ -175,4 +177,5 @@ ja:
         account_locked: "あなたのアカウントは、過剰な回数のサインイン失敗によりロックされています。"
         unlock_instructions: "以下のリンクをクリックしてアカウントのロックを解除してください："
         unlock_link: "アカウントを解除する"
+
 
