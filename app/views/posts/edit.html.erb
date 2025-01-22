@@ -1,20 +1,42 @@
 <% content_for :title, t('posts.edit.title') %>
+<style>
+  textarea:focus {
+    border-color: #7e928d !important;
+    outline: none;
+  }
+</style>
+
 <h1 class="text-center text-3xl font-bold text-cream bg-logo-brown p-6 rounded-lg">
   <%= t('posts.edit.header') %>
 </h1>
 
-<%= form_with(model: @post, local: true, html: { class: "mt-4 max-w-lg mx-auto" }) do |form| %>
-<div class="text-center">
-  <%= form.label :image, t('posts.edit.image_label'), class: "block text-xl text-cream" %>
-  <%= form.file_field :image, class: "mt-2" %>
-</div>
+<div style="
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px #b1cdbb;
+  background-color: #ffffff;">
+  <%= form_with(model: @post, local: true, html: { class: "mt-4" }) do |form| %>
+  <div class="text-center">
+    <%= form.label :image, t('posts.edit.image_label'), class: "block text-xl text-logo-brown mb-2" %>
+    <%= form.file_field :image, style: "display: block; margin: 0 auto;" %>
+  </div>
 
-<div class="mt-4 text-center">
-  <%= form.label :body, t('posts.edit.body_label'), class: "block text-xl text-cream" %>
-  <%= form.text_area :body, rows: 4, class: "mt-2 p-2 w-full text-cream bg-background-blue" %>
-</div>
+  <div class="mt-4 text-center">
+    <%= form.label :body, t('posts.edit.body_label'), class: "block text-xl text-logo-brown mb-2" %>
+    <%= form.text_area :body, rows: 4, style: "width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; background-color: #f9fafb;" %>
+  </div>
 
-<div class="mt-4 text-center">
-  <%= form.submit t('posts.edit.submit_button'), class: "bg-background-blue text-cream py-2 px-4 rounded" %>
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+    <!-- キャンセルボタン -->
+    <%= link_to t('posts.edit.cancel_button'), authenticated_root_path ,style: "padding-left: 1rem; padding-right: 1rem; padding-top: 0.5rem; padding-bottom: 0.5rem; background-color: #7e928d; color: white; font-weight: 600; border-radius: 0.375rem; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); color: #e4ddd5;"%>
+
+    <!-- 更新ボタン -->
+    <%= form.submit t('posts.edit.submit_button'),
+            class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow",
+            style: "padding: 0.5rem 2rem; border: none;" %>
+  </div>
+  <% end %>
 </div>
-<% end %>

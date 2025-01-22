@@ -14,10 +14,12 @@
         <%= image_tag 'walk_top.jpg', alt: t('users.post_list.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>
         <% end %>
       </div>
+      <% unless @is_likes_view %>
       <div class="bg-logo-brown text-text-cream px-4 py-2 mt-2 flex justify-end">
         <%= link_to t('users.post_list.edit'), edit_post_path(post), class: "underline mr-4" %>
         <%= link_to t('users.post_list.delete'), post_path(post), method: :delete, data: { confirm: t('users.post_list.delete_confirm'), turbo: false }, class: "underline mr-4" %>
       </div>
+      <% end %>
     </div>
   </div>
   <% end %>

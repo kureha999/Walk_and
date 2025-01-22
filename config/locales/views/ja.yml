@@ -41,12 +41,14 @@ ja:
       image_label: "画像を選択"
       body_label: "本文"
       submit_button: "更新する"
+      cancel_button: "キャンセル"
     new:
       title: "新規投稿ページ"
       header: "新しく投稿"
       image_label: "画像を選択"
       body_label: "本文"
       submit_button: "投稿する"
+      cancel_button: "キャンセル"
   events:
     data_details:
       title: "の詳細ページ"
@@ -88,6 +90,7 @@ ja:
       edit: "編集"
       else: "まだコメントがありません"
     edit:
+      header: "コメント編集ページ"
       title: "コメントを編集"
       body: "コメント内容"
       submit: "更新する"
