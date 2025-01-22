@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(@post), notice: "コメントを投稿しました。"
+      redirect_to post_path(@post), notice: t("controller.comment.create")
     else
-      redirect_to post_path(@post), alert: "コメントの投稿に失敗しました。"
+      redirect_to post_path(@post), alert: t("controller.comment.alert.create")
     end
   end
 
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   def update
     @comment = current_user.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to post_path(@post), notice: "コメントを更新しました。"
+      redirect_to post_path(@post), notice: t("controller.comment.update")
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post), notice: "コメントを削除しました。"
+    redirect_to post_path(@post), notice: t("controller.comment.destroy")
   end
 
   private

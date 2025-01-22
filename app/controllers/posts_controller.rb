@@ -15,9 +15,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: "投稿が作成されました。"
+      redirect_to posts_path, notice: t("controller.post.create")
     else
-      flash.now[:alert] = "投稿に失敗しました。"
+      flash.now[:alert] = t("controller.post.alert.create")
       render :new
     end
   end
@@ -30,16 +30,16 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "投稿が更新されました。"
+      redirect_to post_path(@post), notice: t("controller.post.update")
     else
-      flash.now[:alert] = "投稿の更新に失敗しました。"
+      flash.now[:alert] = t("controller.post.alert.update")
       render :edit
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to mypage_path, notice: "投稿を削除しました。"
+    redirect_to mypage_path, notice: t("controller.post.destroy")
   end
 
   private
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def authorize_user!
-    redirect_to posts_path, alert: "この投稿を編集する権限がありません。" unless @post.user == current_user
+    redirect_to posts_path, alert: t("controller.post.alert.authorize") unless @post.user == current_user
   end
 
   def post_params

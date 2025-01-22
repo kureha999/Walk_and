@@ -38,7 +38,7 @@ class LineBotController < ApplicationController
     user = User.find_by(uid: user_id)
 
     unless user
-      reply_message(event, "ユーザーが見つかりません。\nアカウントをアプリと連携してください。")
+      reply_message(event, t("controller.line_bot.not_found"))
       return
     end
 
@@ -53,12 +53,12 @@ class LineBotController < ApplicationController
       case message
       when /餌をあげた時間を記録/
         user.create_user_state!(state: "Food")
-        reply_message(event, "タイトルを送信してください🍴")
+        reply_message(event, t("controller.line_bot.please_send_food"))
       when /お散歩を記録/
         user.create_user_state!(state: "Walk")
-        reply_message(event, "タイトルを送信してください🦮")
+        reply_message(event, t("controller.line_bot.please_send_walk"))
       else
-        reply_message(event, "登録形式が正しくありません。\n'餌をあげた時間を記録' や 'お散歩を記録' と送信してください。")
+        reply_message(event, t("controller.line_bot.replay"))
       end
     end
   end
@@ -75,10 +75,10 @@ class LineBotController < ApplicationController
       )
 
       # ユーザーに成功メッセージを返信
-      reply_message(event, "イベントを登録しました😊\n種別: #{event_type}\nタイトル: #{title.strip}")
+      reply_message(event, t("controller.line_bot.success"))
     rescue StandardError => e
       # エラーメッセージを返信
-      reply_message(event, "イベント登録に失敗しました。\nエラー: #{e.message}")
+      reply_message(event, t("controller.line_bot.error"))
     end
   end
 

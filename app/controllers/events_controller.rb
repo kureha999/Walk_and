@@ -32,9 +32,9 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path, notice: "Event created successfully."
+      redirect_to events_path, notice: t("controller.event.create")
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: t("controller.event.alert.create")
     end
   end
 
@@ -42,22 +42,22 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: "Event updated successfully."
+      redirect_to events_path, notice: t("controller.event.update")
     else
-      render :edit
+      render :edit, alert: t("controller.event.alert.update")
     end
   end
 
   def destroy
     if @event.destroy
       respond_to do |format|
-        format.html { redirect_to events_path, notice: "Event deleted successfully." }
+        format.html { redirect_to events_path, notice: t("controller.event.destroy") }
         format.json { render json: { status: "success" }, status: :ok }
         format.turbo_stream # Turbo Streams に対応
       end
     else
       respond_to do |format|
-        format.html { redirect_to events_path, alert: "Failed to delete event." }
+        format.html { redirect_to events_path, alert: t("controller.event.alert.destroy") }
         format.json { render json: { status: "error" }, status: :unprocessable_entity }
       end
     end
@@ -93,7 +93,7 @@ class EventsController < ApplicationController
   end
 
   def authorize_user!
-    redirect_to events_path, alert: "You are not authorized to perform this action." unless @event.user == current_user
+    redirect_to events_path, alert: t("controller.event.alert.authorize") unless @event.user == current_user
   end
 
   def event_params

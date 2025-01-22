@@ -30,7 +30,7 @@ class Post < ApplicationRecord
   # JPEG, PNG, GIF, HEIC以外の形式の場合、エラー
   def image_content_type
     if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
-      errors.add(:image, "：対応していないファイル形式です。JPEG, PNG, GIF, HEICのみアップロード可能です。")
+      errors.add(:image, t("model.post.error.image_content_type"))
     end
   end
 end

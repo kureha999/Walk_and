@@ -1,0 +1,43 @@
+ja:
+  model:
+    event:
+      enum:
+        food: "お食事"
+        walk: "お散歩"
+    post:
+      error:
+        image_content_type: "対応していないファイル形式です。JPEG, PNG, GIF, HEICのみアップロード可能です。"
+  controller:
+    comment:
+      create: "コメントを投稿しました。"
+      destroy: "コメントを削除しました。"
+      update: "コメントを更新しました。"
+      alert:
+        create: "コメントの投稿に失敗しました。"
+        destroy: "コメントの削除に失敗しました。"
+    event:
+      create: "イベントを作成しました。"
+      update: "イベントを更新しました。"
+      destroy: "イベントを削除しました。"
+      alert:
+        create: "イベントの作成に失敗しました。"
+        update: "イベントの更新に失敗しました。"
+        destroy: "イベントの削除に失敗しました。"
+        authorize: "この操作を行う権限がありません。"
+    line_bot:
+      not_found: "ユーザーが見つかりません。\nアカウントをアプリと連携してください。"
+      please_send_food: "タイトルを送信してください🍴"
+      please_send_walk: "タイトルを送信してください🦮"
+      replay: "登録形式が正しくありません。\n'餌をあげた時間を記録' や 'お散歩を記録' と送信してください。"
+      success: "イベントを登録しました😊\n種別: #{event_type}\nタイトル: #{title.strip}"
+      error: "イベント登録に失敗しました。\nエラー: #{e.message}😭"
+    omniauth:
+      success: "ログインしました。"
+    post:
+      create: "投稿が作成されました"
+      update: "投稿が更新されました"
+      destroy: "投稿を削除しました。"
+      alert:
+        create: "投稿に失敗しました"
+        update: "投稿の更新に失敗しました。"
+        authorize: "この投稿を編集する権限がありません。"

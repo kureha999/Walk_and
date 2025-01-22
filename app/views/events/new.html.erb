@@ -17,7 +17,7 @@
 
   <div class="mb-4" style="margin-bottom: 1rem;">
     <%= form.label :event_type, t('events.new.type'), style: "display: block; margin-bottom: 0.5rem; font-weight: bold;" %>
-    <%= form.select :event_type, Event.event_types.keys.map { |key| [key.humanize.capitalize, key] }, {},
+    <%= form.select :event_type, Event.event_types.keys.map { |key| [t("model.event.enum.#{key}"), key] }, {},
             style: "width: 100%; padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 4px;" %>
   </div>
 

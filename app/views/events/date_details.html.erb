@@ -25,7 +25,7 @@
     <li id="<%= dom_id(event) %>" class="mb-4 bg-white shadow border border-gray-200 rounded p-4" style="text-align: center;">
       <!-- カード全体をスタイル -->
       <strong class="text-xl"><%= event.title %></strong><br>
-      <span><%= event.event_type %> - <%= event.time.strftime('%H:%M') %></span><br>
+      <span><%= t("model.event.enum.#{event.event_type}") %> - <%= event.time.strftime('%H:%M') %></span><br>
       <div class="mt-2 flex justify-center space-x-2">
         <%= link_to t('events.data_details.delete'), event_path(event),
                   method: :delete,
