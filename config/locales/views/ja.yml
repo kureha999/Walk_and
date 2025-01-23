@@ -180,5 +180,18 @@ ja:
         account_locked: "あなたのアカウントは、過剰な回数のサインイン失敗によりロックされています。"
         unlock_instructions: "以下のリンクをクリックしてアカウントのロックを解除してください："
         unlock_link: "アカウントを解除する"
-
+  contact:
+    new:
+      header: "お問い合わせページ"
+      title: "お問い合わせ"
+      name: "お名前"
+      email: "メールアドレス"
+      body: "お問い合わせ内容"
+      submit: "送信する"
+  contact_mailer:
+    contact_email:
+      title: "お問い合わせがありました"
+      name: "お名前:"
+      email: "メールアドレス:"
+      body: "お問い合わせ内容:"
 

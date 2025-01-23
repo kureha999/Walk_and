@@ -1,0 +1,54 @@
+<% content_for :title, t('contact.new.header') %>
+<style>
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border-color: #7e928d !important;
+    outline: none;
+  }
+</style>
+<h1 style="
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c19a88;
+  text-align: center;
+  margin-bottom: 1.5rem;">
+  <%= t('contact.new.title') %>
+</h1>
+
+<div style="
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px #b1cdbb;">
+
+  <%= form_with model: @contact, url: contacts_path, local: true do |f| %>
+  <div style="margin-bottom: 1.5rem; text-align: center;">
+    <%= f.label :name, t('contact.new.name'),
+        style: 'display: block; margin-bottom: 0.5rem; font-size: 1rem; font-weight: bold; color: #b1cdbb' %>
+    <%= f.text_field :name, required: true,
+        style: 'width: 60%; height: 50px; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px; display: inline-block;' %>
+  </div>
+  <div style="margin-bottom: 1.5rem; text-align: center;">
+    <%= f.label :email, t('contact.new.email'),
+        style: 'display: block; margin-bottom: 0.5rem; font-size: 1rem; font-weight: bold; color: #b1cdbb' %>
+    <%= f.email_field :email, required: true,
+        style: 'width: 60%; height: 50px; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px; display: inline-block;' %>
+  </div>
+  <div style="margin-bottom: 1.5rem; text-align: center;">
+    <%= f.label :message, t('contact.new.body'),
+        style: 'display: block; margin-bottom: 0.5rem; font-size: 1rem; font-weight: bold; color: #b1cdbb' %>
+    <%= f.text_area :message, required: true,
+        style: 'width: 100%; height: 120px; padding: 0.5rem; border: 2px solid #e5e7eb; border-radius: 4px;' %>
+  </div>
+
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+    <%= f.submit t('contact.new.submit'),
+            class: "px-4 py-2 bg-logo-brown text-text-cream font-semibold rounded shadow",
+            style: "padding: 0.5rem 2rem; border: none;" %>
+  </div>
+  <% end %>
+</div>
