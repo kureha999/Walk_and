@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get "mypage", to: "users#show", as: "mypage"
   get "mypage/likes", to: "users#likes", as: "mypage_likes"
 
+
+    get "static_pages/privacy", to: "static_pages#privacy", as: "privacy"
+    get "static_pages/terms", to: "static_pages#terms", as: "terms"
   # begin 初期Routes --------------------------------------------------------------
 
   get "up" => "rails/health#show", as: :rails_health_check
