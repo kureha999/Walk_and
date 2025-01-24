@@ -1,10 +1,10 @@
-<div style="position: relative; display: inline-block; margin: 40px; border-radius: 15px; overflow: hidden; font-family: 'Kosugi Maru', sans-serif; border: 4px solid; border-color: #b1cdbb;">
+<div style="position: relative; display: inline-block;  border-radius: 15px; overflow: hidden; font-family: 'Kosugi Maru', sans-serif; border: 4px solid; border-color: #b1cdbb;">
   <img src="<%= asset_path('walk_and.jpg') %>" alt="Walk Top" style="width: 100%; height: auto;">
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
     <h1 style="font-size: 4em; font-weight: bold; margin: 0; letter-spacing: 2px;">Walk&</h1>
     <h2 style="font-size: 2em; margin: 0;">可愛いを<span class="text-background-blue">共有</span><br>
       毎日を<span class="text-background-blue">記録</span>へ</h2>
-    <p style=" margin-top: 10px; max-width: 50%; width: auto; letter-spacing: 1px;">
+    <p style=" margin-top: 10px; max-width: 70%; width: auto; letter-spacing: 1px;">
       Walk&は、ワンちゃんやお気に入りの場所を投稿したり、
       毎日のお散歩を記録するアプリです。
     </p>
@@ -15,39 +15,74 @@
   <h2>Walk&の使い方</h2>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 0 0.75rem;">
+<div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 0 0.75rem;">
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
-    <img src="<%= asset_path('login.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">ログイン</h3>
-    <p style="text-align: center;">上のログインボタンから<br>ログインをして下さいできます!</p>
-    <p><%= link_to "LINEでログイン", new_user_session_path, class: " bg-green-600 text-white py-2 px-3 rounded-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300" %>を推奨します‼️</p>
+  <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary); text-align: center;">ログイン💫</h3>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="<%= asset_path('login.jpg') %>" alt="Login Example" style="width: 150px; height: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+      <p style="text-align: left;">
+        上のログインボタンからログインをして下さいできます!<br>
+        <%= link_to "LINEでログイン", new_user_session_path, class: " bg-green-600 text-white py-2 px-3 rounded-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300" %>を推奨します‼️
+      </p>
+    </div>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
-    <img src="<%= asset_path('index.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">投稿一覧</h3>
-    <p style="text-align: center;">
-      投稿されたワンちゃんやお気に入りの場所を見ることができます。<br>
-      画像をクリックしたら投稿を詳しく見れます😁
-    </p>
+  <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary); text-align: center;">投稿一覧📕</h3>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="<%= asset_path('index.jpg') %>" alt="Login Example" style="width: 150px; height: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+      <p style="text-align: left;">
+        投稿されたワンちゃんやお気に入りの場所を見ることができます。<br>
+        画像をクリックしたら投稿を詳しく見れます😄
+      </p>
+    </div>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
-    <img src="<%= asset_path('like.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">いいね機能</h3>
-    <p style="text-align: center;">
-      投稿一覧の画像をクリックしたらこのページに行きます😁<br>
-      投稿者の名前の右の[♡]をクリックするといいねができます👍
-    </p>
+  <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <small style="color: red; text-align: center;">ログイン必須</small>
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary); text-align: center;">いいね機能👍</h3>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="<%= asset_path('like.jpg') %>" alt="Login Example" style="width: 150px; height: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+      <p style="text-align: left;">
+        投稿一覧の画像をクリックしたらこのページに行きます✈️<br>
+        投稿者の名前の右の[♡]を押すといいねができます👍
+      </p>
+    </div>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
-    <img src="<%= asset_path('comment.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">コメント機能</h3>
-    <p style="text-align: center;">
-      投稿一覧の画像をクリックしたらこのページに行きます😁<br>
-      下の方に行くと投稿にコメントができます📝
-    </p>
+  <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <small style="color: red; text-align: center;">ログイン必須</small>
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary); text-align: center;">コメント機能📝</h3>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="<%= asset_path('comment.jpg') %>" alt="Login Example" style="width: 150px; height: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+      <p style="text-align: left;">
+        投稿一覧の画像をクリックしたらこのページに行きます✈️<br>
+        下の方に行くと投稿にコメントができます✍️
+      </p>
+    </div>
   </div>
+
+  <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <small style="color: red; text-align: center;">ログイン必須</small>
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary); text-align: center;">マイページ🏠</h3>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <img src="<%= asset_path('mypage.jpg') %>" alt="Login Example" style="width: 150px; height: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+      <p style="text-align: left;">
+        上のマイページボタンを押すと<br>
+        自分の投稿やいいねした投稿を見ることができます🏠<br>
+        ここでは、自分の投稿を編集したり削除したりすることができます🗑️
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
 </div>
