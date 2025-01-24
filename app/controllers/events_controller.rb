@@ -9,12 +9,15 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: @events.map { |event|
+        # 日付ごとにイベントをまとめる
+        events_by_date = @events.group_by { |event| event.time.to_date }
+
+        render json: events_by_date.map { |date, events|
           {
-            id: event.id,
-            title: event.title,
-            start: event.time.in_time_zone("Asia/Tokyo").iso8601, # タイムゾーンを変換して送信
-            url: event_path(event)
+            id: date.to_s, # 日付を一意のIDとして使用
+            title: "⭐️",  # [⭐️] をタイトルとして表示
+            start: date.to_s, # 日付を開始日として指定
+            url: event_date_path(date: date.to_s)
           }
         }
       end
@@ -32,7 +35,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path, notice: t("controller.event.create")
+      redirect_to date_details_events_path(date: @event.time.to_date.to_s), notice: t("controller.event.create")
     else
       render :new, status: :unprocessable_entity, alert: t("controller.event.alert.create")
     end
@@ -42,7 +45,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: t("controller.event.update")
+      redirect_to date_details_events_path(date: @event.time.to_date.to_s), notice: t("controller.event.update")
     else
       render :edit, alert: t("controller.event.alert.update")
     end
