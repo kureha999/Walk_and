@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
   end
 
-  resources :events
+  resources :events, except: [ :show ]
 
   post "/line_bot/callback", to: "line_bot#callback"
 
