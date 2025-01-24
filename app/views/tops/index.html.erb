@@ -19,16 +19,35 @@
 
   <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
     <img src="<%= asset_path('login.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.125rem; font-weight: bold; color: var(--primary);">ログイン</h3>
-    <p style="text-align: center;">ログインページの例です。この画面でメールアドレスとパスワードを入力してください。</p>
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">ログイン</h3>
+    <p style="text-align: center;">上のログインボタンから<br>ログインをして下さいできます!</p>
+    <p><%= link_to "LINEでログイン", new_user_session_path, class: " bg-green-600 text-white py-2 px-3 rounded-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300" %>を推奨します‼️</p>
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
-    <img src="<%= asset_path('login.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
-    <h3 style="font-size: 1.125rem; font-weight: bold; color: var(--primary);">ログイン</h3>
-    <p style="text-align: center;">ログインページの例です。この画面でメールアドレスとパスワードを入力してください。</p>
+    <img src="<%= asset_path('index.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">投稿一覧</h3>
+    <p style="text-align: center;">
+      投稿されたワンちゃんやお気に入りの場所を見ることができます。<br>
+      画像をクリックしたら投稿を詳しく見れます😁
+    </p>
   </div>
 
-  <!-- 他の説明カードをここに追加できます -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <img src="<%= asset_path('like.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">いいね機能</h3>
+    <p style="text-align: center;">
+      投稿一覧の画像をクリックしたらこのページに行きます😁<br>
+      投稿者の名前の右の[♡]をクリックするといいねができます👍
+    </p>
+  </div>
 
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 10px; border: 1px solid; border-color: #b1cdbb; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: white;">
+    <img src="<%= asset_path('comment.jpg') %>" alt="Login Example" style="width: 100%; max-height: 400px; width: auto; border-radius: 10px; border: 3px solid; border-color: #c19a88;">
+    <h3 style="font-size: 1.25rem; font-weight: bold; color: var(--primary);">コメント機能</h3>
+    <p style="text-align: center;">
+      投稿一覧の画像をクリックしたらこのページに行きます😁<br>
+      下の方に行くと投稿にコメントができます📝
+    </p>
+  </div>
 </div>
