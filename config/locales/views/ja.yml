@@ -194,4 +194,11 @@ ja:
       name: "お名前:"
       email: "メールアドレス:"
       body: "お問い合わせ内容:"
+  top:
+    index:
+      header: "アプリ説明ページ"
+      title: "WALK&"
+      description: "WALK&の使い方"
+      alert: "ログイン必須"
+
 
