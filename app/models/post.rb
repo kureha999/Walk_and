@@ -21,16 +21,15 @@ class Post < ApplicationRecord
     image.variant(resize_to_fill: [ 600, 600 ], saver: { quality: 90, interlace: "plane" })
   end
 
+    def image_content_type
+    if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
+      errors.add(:image, I18n.t("model.post.error.image_content_type"))
+    end
+  end
+
   private
 
   def image_optional?
     body.blank? # 本文が空でない場合のみ画像を必須にする
-  end
-
-  # JPEG, PNG, GIF, HEIC以外の形式の場合、エラー
-  def image_content_type
-    if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
-      errors.add(:image, t("model.post.error.image_content_type"))
-    end
   end
 end
