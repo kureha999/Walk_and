@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  # ログイン中のユーザーのみに投稿、編集、削除を許可
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authorize_user!, only: %i[edit update destroy]
