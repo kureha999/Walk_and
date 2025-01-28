@@ -22,6 +22,8 @@ RSpec.configure do |config|
 
   # factory_bot_railsの設定
   config.include FactoryBot::Syntax::Methods
+  # Deviseの設定
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # shoulda-matchersの設定
   Shoulda::Matchers.configure do |config|
