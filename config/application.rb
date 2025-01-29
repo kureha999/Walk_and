@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module WalkAnd
   class Application < Rails::Application
+    config.action_dispatch.rescue_responses["ActionController::RoutingError"] = :not_found
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
     config.active_storage.variant_processor = :mini_magick

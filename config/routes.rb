@@ -31,8 +31,12 @@ Rails.application.routes.draw do
 
   get "static_pages/privacy", to: "static_pages#privacy", as: "privacy"
   get "static_pages/terms", to: "static_pages#terms", as: "terms"
-  # begin 初期Routes --------------------------------------------------------------
 
+
+  # WordPress 系の不正アクセス対策
+get "/wp-admin/*path", to: ->(_) { [404, {}, ["Not Found"]] }
+get "/wordpress/*path", to: ->(_) { [404, {}, ["Not Found"]] }
+  # begin 初期Routes --------------------------------------------------------------
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
