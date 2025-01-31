@@ -2,6 +2,19 @@
 <html>
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7LQG79SY8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R7LQG79SY8');
+  </script>
+
   <title><%= content_for(:title) || "Walk&" %></title>
   <%= favicon_link_tag 'walk_and.ico' %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
