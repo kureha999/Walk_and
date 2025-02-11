@@ -75,7 +75,7 @@ class LineBotController < ApplicationController
       )
 
       # ユーザーに成功メッセージを返信
-      reply_message(event, t("controller.line_bot.success", event_type: event_type, title: title.strip))
+      reply_message(event, t("controller.line_bot.success", event_type: I18n.t("model.event.enum.#{event_type}"), title: title.strip))
     rescue StandardError => e
       # エラーメッセージを返信
       reply_message(event, t("controller.line_bot.error", error_message: e.message))
