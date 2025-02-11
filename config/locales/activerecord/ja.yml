@@ -29,7 +29,7 @@ ja:
       please_send_food: "タイトルを送信してください🍴"
       please_send_walk: "タイトルを送信してください🦮"
       replay: "登録形式が正しくありません。\n'餌をあげた時間を記録' や 'お散歩を記録' と送信してください。"
-      success: "イベントを登録しました😊\n種別: %{event_type}\nタイトル: %{title.strip}"
+      success: "イベントを登録しました😊\n種別: %{event_type}\nタイトル: %{title}"
       error: "イベント登録に失敗しました。\nエラー: %{e.message}😭"
     omniauth:
       success: "ログインしました。"

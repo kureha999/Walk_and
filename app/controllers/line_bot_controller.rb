@@ -52,10 +52,10 @@ class LineBotController < ApplicationController
     else
       case message
       when /餌をあげた時間を記録/
-        user.create_user_state!(state: "Food")
+        user.create_user_state!(state: "food")
         reply_message(event, t("controller.line_bot.please_send_food"))
       when /お散歩を記録/
-        user.create_user_state!(state: "Walk")
+        user.create_user_state!(state: "walk")
         reply_message(event, t("controller.line_bot.please_send_walk"))
       else
         reply_message(event, t("controller.line_bot.replay"))
