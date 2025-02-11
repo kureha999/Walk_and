@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to date_details_events_path(date: @event.time.to_date.to_s), notice: t("controller.event.create")
+      redirect_to event_date_path(date: @event.time.to_date.to_s), notice: t("controller.event.create")
     else
       render :new, status: :unprocessable_entity, alert: t("controller.event.alert.create")
     end
@@ -45,7 +45,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to date_details_events_path(date: @event.time.to_date.to_s), notice: t("controller.event.update")
+      redirect_to event_date_path(date: @event.time.to_date.to_s), notice: t("controller.event.update")
     else
       render :edit, alert: t("controller.event.alert.update")
     end
@@ -55,13 +55,13 @@ class EventsController < ApplicationController
     date = @event.time.to_date.to_s # イベントの日付を取得
     if @event.destroy
       respond_to do |format|
-        format.html { redirect_to date_details_events_path(date: date), notice: t("controller.event.destroy") }
+        format.html { redirect_to event_date_path(date: date), notice: t("controller.event.destroy") }
         format.json { render json: { status: "success" }, status: :ok }
         format.turbo_stream
       end
     else
       respond_to do |format|
-        format.html { redirect_to date_details_events_path(date: date), alert: t("controller.event.alert.destroy") }
+        format.html { redirect_to event_date_path(date: date), alert: t("controller.event.alert.destroy") }
         format.json { render json: { status: "error" }, status: :unprocessable_entity }
       end
     end
