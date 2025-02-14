@@ -9,13 +9,12 @@ class Post < ApplicationRecord
   validates :image, presence: true, unless: :image_optional?
   validate :image_content_type
 
-  # いいね機能
+
   def liked_by?(user)
     return false if user.nil?
     likes.exists?(user_id: user.id)
   end
 
-  # リサイズ用のバリアント(品質90に設定)
   def resized_image
     return unless image.attached?
     image.variant(resize_to_fill: [ 600, 600 ], saver: { quality: 90, interlace: "plane" })
@@ -30,6 +29,6 @@ class Post < ApplicationRecord
   private
 
   def image_optional?
-    body.blank? # 本文が空でない場合のみ画像を必須にする
+    body.blank?
   end
 end

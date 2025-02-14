@@ -9,14 +9,13 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        # 日付ごとにイベントをまとめる
         events_by_date = @events.group_by { |event| event.time.to_date }
 
         render json: events_by_date.map { |date, events|
           {
-            id: date.to_s, # 日付を一意のIDとして使用
-            title: "⭐️",  # [⭐️] をタイトルとして表示
-            start: date.to_s, # 日付を開始日として指定
+            id: date.to_s,
+            title: "⭐️",
+            start: date.to_s,
             url: event_date_path(date: date.to_s)
           }
         }
@@ -25,11 +24,11 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])  # イベントIDをもとにイベントを取得
+    @event = Event.find(params[:id])
   end
 
   def new
-    @event = current_user.events.build(time: params[:date]) # URLのdateパラメータを利用
+    @event = current_user.events.build(time: params[:date])
   end
 
   def create
@@ -52,7 +51,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    date = @event.time.to_date.to_s # イベントの日付を取得
+    date = @event.time.to_date.to_s
     if @event.destroy
       respond_to do |format|
         format.html { redirect_to event_date_path(date: date), notice: t("controller.event.destroy") }
@@ -70,10 +69,8 @@ class EventsController < ApplicationController
   def date_details
     @date = params[:date]
 
-    # タイムゾーンの設定を確認
     timezone = ActiveSupport::TimeZone["Asia/Tokyo"]
 
-    # @dateをタイムゾーン付きのDateTimeオブジェクトに変換
     parsed_date = timezone.parse(@date)
 
     unless parsed_date
@@ -81,12 +78,11 @@ class EventsController < ApplicationController
       return
     end
 
-    # 範囲を指定してイベントを取得
     start_of_day = parsed_date.beginning_of_day
     end_of_day = parsed_date.end_of_day
 
     @events = current_user.events
-                          .where(time: start_of_day..end_of_day) # UTC時間帯で比較
+                          .where(time: start_of_day..end_of_day)
                           .order(time: :asc)
   end
 

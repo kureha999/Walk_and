@@ -45,10 +45,9 @@ class LineBotController < ApplicationController
     message = event.message["text"]
     user_state = user.user_state
 
-    # ユーザー状態確認
     if user_state
       process_event_registration(event, user, user_state.state, message)
-      user_state.destroy # 状態リセット
+      user_state.destroy
     else
       case message
       when /餌をあげた時間を記録/
@@ -67,17 +66,15 @@ class LineBotController < ApplicationController
     begin
       time = Time.zone.now
 
-      # イベントを保存
       user.events.create!(
         event_type: Event.event_types[event_type],
         title: title.strip,
         time: time
       )
 
-      # ユーザーに成功メッセージを返信
       reply_message(event, t("controller.line_bot.success", event_type: I18n.t("model.event.enum.#{event_type}"), title: title.strip))
     rescue StandardError => e
-      # エラーメッセージを返信
+
       reply_message(event, t("controller.line_bot.error", error_message: e.message))
     end
   end
