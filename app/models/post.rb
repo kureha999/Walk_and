@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   validates :image, presence: true, unless: :image_optional?
   validate :image_content_type
 
+  after_commit :convert_heic_image, on: :create
 
   def liked_by?(user)
     return false if user.nil?
@@ -20,13 +21,17 @@ class Post < ApplicationRecord
     image.variant(resize_to_fill: [ 600, 600 ], saver: { quality: 90, interlace: "plane" })
   end
 
-    def image_content_type
+  def image_content_type
     if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
       errors.add(:image, I18n.t("model.post.error.image_content_type"))
     end
   end
 
   private
+
+  def convert_heic_image
+    ConvertHeicToJpegJob.perform_later(self) if image.attached?
+  end
 
   def image_optional?
     body.blank?
