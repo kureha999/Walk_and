@@ -1,8 +1,9 @@
 # サービス名: Walk&
 
 ## サービスURL: https://walk-and.net
-
-[![Image from Gyazo](https://i.gyazo.com/1887286178369076a51f120aea2d688b.png)](https://gyazo.com/1887286178369076a51f120aea2d688b)
+<a href="https://gyazo.com/1887286178369076a51f120aea2d688b">
+  <img src="https://i.gyazo.com/1887286178369076a51f120aea2d688b.png" alt="Image from Gyazo" width="500" />
+</a>
 
 ## サービス概要
 **Walk&** は,毎日のワンちゃんのお散歩と餌のあげた時間を記録しながら、
@@ -48,6 +49,17 @@
 | 操作の簡単さ | ✅ シンプルな操作 | ❌ GPS記録など複雑な操作が必要    |
 | 対象ユーザー | ✅ 子供・お年寄り| 	❌ 20-30代向けが多い|
 
+## 機能紹介
+#### ユーザー登録/ログイン
+
+
+『名前』『メールアドレス』『パスワード』『確認用パスワード』を入力してユーザー登録を行います。ユーザー登録後は、自動的にログイン処理が行われるようになっており、そのまま直ぐにサービスを利用する事が出来ます。<rb>
+また、LINEアカウントを用いてLINEログインを行う事も可能です。 walk@example.com
+
+
+
+
+
 ## 技術スタック
 
 | カテゴリ       | 技術                     |
@@ -61,8 +73,12 @@
 
 ## 画面遷移図
 
-[![Image from Gyazo](https://i.gyazo.com/556465c5d3a9b266db8e17918e9e17f4.png)](https://gyazo.com/556465c5d3a9b266db8e17918e9e17f4)
+<a href="https://gyazo.com/556465c5d3a9b266db8e17918e9e17f4">
+  <img src="https://i.gyazo.com/556465c5d3a9b266db8e17918e9e17f4.png" alt="Image from Gyazo" width="500" />
+</a>
 
 ## ER図
 
-[![Image from Gyazo](https://i.gyazo.com/4cd8fa48cb337ec3c90a09a9441de5bf.png)](https://gyazo.com/4cd8fa48cb337ec3c90a09a9441de5bf)
+<a href="https://gyazo.com/4cd8fa48cb337ec3c90a09a9441de5bf">
+  <img src="https://i.gyazo.com/4cd8fa48cb337ec3c90a09a9441de5bf.png" alt="Image from Gyazo" width="500" />
+</a>
