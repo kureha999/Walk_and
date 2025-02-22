@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require "mini_magick"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,10 +23,15 @@ module WalkAnd
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+
     config.time_zone = "Asia/Tokyo"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
+  end
+
+  MiniMagick.configure do |config|
+    config.cli = :imagemagick7
+    config.cli_path = "/usr/local/bin/"
   end
 end

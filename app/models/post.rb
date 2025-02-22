@@ -1,3 +1,4 @@
+require "mini_magick"
 class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
@@ -20,7 +21,7 @@ class Post < ApplicationRecord
     image.variant(resize_to_fill: [ 600, 600 ], saver: { quality: 90, interlace: "plane" })
   end
 
-    def image_content_type
+  def image_content_type
     if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif image/heic])
       errors.add(:image, I18n.t("model.post.error.image_content_type"))
     end
@@ -29,6 +30,6 @@ class Post < ApplicationRecord
   private
 
   def image_optional?
-    body.blank?
+    body.present?
   end
 end

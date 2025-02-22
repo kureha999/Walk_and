@@ -453,7 +453,7 @@ DEPENDENCIES
   kaminari
   line-bot-api
   meta-tags
-  mini_magick (~> 4.11)
+  mini_magick (~> 4.13, >= 4.13.2)
   omniauth-line
   omniauth-rails_csrf_protection
   pg (~> 1.1)
