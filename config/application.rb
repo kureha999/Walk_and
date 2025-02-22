@@ -28,10 +28,7 @@ module WalkAnd
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
-  end
 
-  MiniMagick.configure do |config|
-    config.cli = :imagemagick7
-    config.cli_path = "/usr/local/bin/"
+  config.active_storage.variable_content_types += [ "image/heic", "image/heic-sequence", "image/heif", "image/heif-sequence" ]
   end
 end
