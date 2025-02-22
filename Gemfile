@@ -49,7 +49,7 @@ gem "dotenv-rails"
 # Active Storageで画像のバリアントを生成するため
 gem "image_processing", "~> 1.2"
 # ImageMagickを利用するため
-gem "mini_magick", "~> 4.13", ">= 4.13.2"
+gem "mini_magick", "~> 5.1"
 # AWS..AmazonS3
 gem "aws-sdk-s3", require: false
 # カレンダー用
