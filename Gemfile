@@ -47,7 +47,7 @@ gem "line-bot-api"
 # 環境変数を設定する
 gem "dotenv-rails"
 # Active Storageで画像のバリアントを生成するため
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.14"
 # ImageMagickを利用するため
 gem "mini_magick", "~> 4.13", ">= 4.13.2"
 # carrierwaveを利用するため
