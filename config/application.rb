@@ -13,7 +13,7 @@ module WalkAnd
     config.action_dispatch.rescue_responses["ActionController::RoutingError"] = :not_found
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
-    config.active_storage.variant_processor = :mini_magick
+    # config.active_storage.variant_processor = :mini_magick
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
