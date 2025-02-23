@@ -1,4 +1,4 @@
 MiniMagick.configure do |config|
-  config.cli = :imagemagick7
+  config.cli = :imagemagick
   config.cli_path = "/usr/local/bin/"
 end
