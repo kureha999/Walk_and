@@ -1,4 +1,3 @@
-require "mini_magick"
 class Post < ApplicationRecord
   belongs_to :user
   # has_one_attached :image
