@@ -21,6 +21,9 @@
   <div class="text-center">
     <%= form.label :image, t('posts.new.image_label'), class: "block text-xl text-logo-brown mb-2" %>
     <%= form.file_field :image, style: "display: block; margin: 0 auto;" %>
+    <% if form.object.image.present? %>
+    <%= form.hidden_field :image_cache %>
+    <% end %>
   </div>
 
   <div class="mt-4 text-center">

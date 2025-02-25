@@ -6,9 +6,9 @@
         <%= post.user.name %>
       </div>
       <div style="margin-top: 8px;">
-        <% if post.image.attached? %>
+        <% if post.image.present? %>
         <%= link_to post_path(post, previous_url: session[:previous_url]) do %>
-        <%= image_tag post.resized_image, class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
+        <%= image_tag post.image.url, class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
         <% end %>
         <% else %>
         <%= image_tag 'walk_top.jpg', alt: t('users.post_list.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>

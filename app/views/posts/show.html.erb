@@ -21,7 +21,7 @@
 </div>
 
 <div class="mt-4">
-  <% if @post.image.attached? %>
+  <% if post.image.present? %>
   <%= image_tag @post.image, class: "w-full h-auto rounded-lg shadow-md" %>
   <% else %>
   <!-- 画像が添付されていない場合の処理 -->
