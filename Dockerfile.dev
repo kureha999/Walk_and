@@ -19,11 +19,8 @@ RUN apt-get update -qq && apt-get install -y \
     nodejs \
     yarn \
     vim \
-    libvips42 \
     libheif1 \
-    libheif-examples \
     libheif-dev \
-    libvips-dev \
     libjpeg-dev \
     libmagickwand-dev \
     libmagickcore-dev \

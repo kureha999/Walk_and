@@ -11,6 +11,9 @@ class PostImageUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
+  def size_range
+    1.byte..5.megabytes
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
