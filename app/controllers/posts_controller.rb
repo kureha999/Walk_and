@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: t("controller.post.create")
     else
+      Rails.logger.error "Post save failed: #{@post.errors.full_messages}"
       flash.now[:alert] = t("controller.post.alert.create")
       render :new
     end
