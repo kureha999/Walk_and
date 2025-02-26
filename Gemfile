@@ -51,7 +51,7 @@ gem "image_processing", "~> 1.2"
 # ImageMagickを利用するため
 gem "mini_magick", "~> 4.13", ">= 4.13.2"
 # carrierwaveを利用するため
-gem "carrierwave", "~> 2.0", ">= 2.0.0"
+gem "carrierwave", "~> 3.0"
 # AWS..AmazonS3
 gem "aws-sdk-s3", require: false
 # 連携用
