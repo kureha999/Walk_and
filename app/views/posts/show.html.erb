@@ -21,8 +21,8 @@
 </div>
 
 <div class="mt-4">
-  <% if post.image.present? %>
-  <%= image_tag @post.image, class: "w-full h-auto rounded-lg shadow-md" %>
+  <% if @post.image.present? %>
+  <%= image_tag @post.image.url, class: "w-full h-auto rounded-lg shadow-md" %>
   <% else %>
   <!-- 画像が添付されていない場合の処理 -->
   <%= image_tag 'walk_top.jpg', alt: t('posts.show.default_image_alt'), class: "w-full h-auto rounded-lg shadow-md" %>
