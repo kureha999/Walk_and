@@ -13,10 +13,14 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    Rails.logger.debug "Post params: #{post_params.inspect}"
+    Rails.logger.debug "Creating post with params: #{post_params.inspect}"
     if @post.save
       redirect_to posts_path, notice: t("controller.post.create")
     else
+      Rails.logger.debug "Processed image: #{@post.image.inspect}"
       Rails.logger.error "Post save failed: #{@post.errors.full_messages}"
+      Rails.logger.error "Full errors: #{@post.errors.inspect}"
       flash.now[:alert] = t("controller.post.alert.create")
       render :new
     end

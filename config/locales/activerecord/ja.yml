@@ -34,26 +34,27 @@ ja:
     omniauth:
       success: "ログインしました。"
     post:
-      create: "投稿が作成されました"
-      update: "投稿が更新されました"
+      create: "投稿が作成されました。"
+      update: "投稿が更新されました。"
       destroy: "投稿を削除しました。"
       alert:
-        create: "投稿に失敗しました"
+        create: "投稿に失敗しました。"
         update: "投稿の更新に失敗しました。"
         authorize: "この投稿を編集する権限がありません。"
   contact:
     mailer:
-      subject: "お問い合わせを受け付けました"
+      subject: "お問い合わせを受け付けました。"
     controller:
       notice: "お問い合わせを受け付けました。"
       alert: "入力内容にエラーがあります。"
   errors:
     messages:
-      carrierwave_processing_error: "処理できませんでした"
-      carrierwave_integrity_error: "は許可されていないファイルタイプです"
-      carrierwave_download_error: "はダウンロードできません"
+      carrierwave_processing_error: "処理できませんでした。"
+      carrierwave_integrity_error: "は許可されていないファイルタイプです。"
+      carrierwave_download_error: "はダウンロードできません。"
       extension_white_list_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
       extension_black_list_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
       rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
       mime_types_processing_error: "MIME::Typesのファイルを処理できませんでした。Content-Typeを確認してください。エラーメッセージ: %{e}"
       mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      processing_error: "ファイルを処理できませんでした。"
