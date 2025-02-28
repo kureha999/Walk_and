@@ -20,20 +20,25 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w[jpg jpeg gif png heic webp]
+    %w[jpg jpeg gif png heic]
   end
 
   process resize_to_fit: [ 600, 600 ]
-  process :convert_to_webp
+  process :convert_heic_to_jpeg, if: :heic?
 
-  def convert_to_webp
-    manipulate! do |img|
-      img.format "webp"
-      img
-    end
+  private
+
+  def heic?(file)
+    file.content_type == "image/heic" || file.extension.downcase == "heic"
   end
 
-  def filename
-    super.chomp(File.extname(super)) + ".webp" if original_filename.present?
+  def convert_heic_to_jpeg
+    cache_stored_file! unless cached?
+
+    temp_path = current_path.sub(/\.\w+$/, ".jpg")
+    image = MiniMagick::Image.open(current_path)
+    image.format("jpg")
+    image.write(temp_path)
+    File.rename(temp_path, current_path.sub(/\.heic\z/i, ".jpg"))
   end
 end
