@@ -52,6 +52,8 @@ gem "image_processing", "~> 1.2"
 gem "mini_magick", "~> 4.13", ">= 4.13.2"
 # carrierwaveを利用するため
 gem "carrierwave", "~> 3.0"
+# 画像拡張子変更api
+gem "cloudinary"
 # AWS..AmazonS3
 gem "aws-sdk-s3", require: false
 # 連携用

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get "static_pages/privacy", to: "static_pages#privacy", as: "privacy"
   get "static_pages/terms", to: "static_pages#terms", as: "terms"
 
+  post "/cloudinary_webhook", to: "cloudinary_webhooks#create"
 
 # WordPress 系の不正アクセス対策
 get "/wp-admin/*path", to: ->(_) { [ 404, {}, [ "Not Found" ] ] }

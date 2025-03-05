@@ -15,12 +15,16 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     Rails.logger.debug "Post params: #{post_params.inspect}"
     Rails.logger.debug "Creating post with params: #{post_params.inspect}"
+
+    # imageの値を一時変数に退避
+    image_temp = @post.image
+    @post.image = nil # imageカラムを一旦nilにする
+
     if @post.save
+      # imageの値を戻す（CloudinaryへのアップロードはCarrierWaveに任せる）
+      @post.update(image: image_temp)
       redirect_to posts_path, notice: t("controller.post.create")
     else
-      Rails.logger.debug "Processed image: #{@post.image.inspect}"
-      Rails.logger.error "Post save failed: #{@post.errors.full_messages}"
-      Rails.logger.error "Full errors: #{@post.errors.inspect}"
       flash.now[:alert] = t("controller.post.alert.create")
       render :new
     end

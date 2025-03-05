@@ -1,11 +1,6 @@
 class PostImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  include Cloudinary::CarrierWave
+  after :cache, :set_cloudinary_asset_id
 
   def size_range
     1.byte..6.megabytes
@@ -24,21 +19,15 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   process resize_to_fit: [ 600, 600 ]
-  process :convert_heic_to_jpeg, if: :heic?
+  process convert: "jpg"
 
   private
 
-  def heic?(file)
-    file.content_type == "image/heic" || file.extension.downcase == "heic"
-  end
-
-  def convert_heic_to_jpeg
-    cache_stored_file! unless cached?
-
-    temp_path = current_path.sub(/\.\w+$/, ".jpg")
-    image = MiniMagick::Image.open(current_path)
-    image.format("jpg")
-    image.write(temp_path)
-    File.rename(temp_path, current_path.sub(/\.heic\z/i, ".jpg"))
+  # Cloudinaryのasset_idをPostモデルに保存
+  def set_cloudinary_asset_id(file)
+    Rails.logger.debug "set_cloudinary_asset_id called" # ログを追加
+    if model && file.respond_to?(:public_id)
+      model.update_column(:cloudinary_asset_id, file.public_id)
+    end
   end
 end
