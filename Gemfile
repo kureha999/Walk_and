@@ -49,7 +49,7 @@ gem "dotenv-rails"
 # Active Storageで画像のバリアントを生成するため
 gem "image_processing", "~> 1.2"
 # ImageMagickを利用するため
-gem "mini_magick", "~> 4.13", ">= 4.13.2"
+gem "mini_magick", "~> 5.2"
 # carrierwaveを利用するため
 gem "carrierwave", "~> 3.0"
 # 画像拡張子変更api
