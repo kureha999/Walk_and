@@ -16,12 +16,12 @@ class PostsController < ApplicationController
     Rails.logger.debug "Post params: #{post_params.inspect}"
     Rails.logger.debug "Creating post with params: #{post_params.inspect}"
 
-    # imageの値を一時変数に退避
+
     image_temp = @post.image
-    @post.image = nil # imageカラムを一旦nilにする
+    @post.image = nil
 
     if @post.save
-      # imageの値を戻す（CloudinaryへのアップロードはCarrierWaveに任せる）
+
       @post.update(image: image_temp)
       redirect_to posts_path, notice: t("controller.post.create")
     else

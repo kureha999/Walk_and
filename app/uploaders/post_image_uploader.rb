@@ -23,9 +23,9 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   private
 
-  # Cloudinaryのasset_idをPostモデルに保存
+
   def set_cloudinary_asset_id(file)
-    Rails.logger.debug "set_cloudinary_asset_id called" # ログを追加
+    Rails.logger.debug "set_cloudinary_asset_id called"
     if model && file.respond_to?(:public_id)
       model.update_column(:cloudinary_asset_id, file.public_id)
     end
