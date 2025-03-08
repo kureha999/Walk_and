@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: %i[create edit update destroy]
     resources :likes, only: %i[create destroy]
+    get "image", on: :member, to: "posts#show_image", as: :display_image
   end
 
   resources :events, except: [ :show ]

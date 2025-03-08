@@ -22,7 +22,6 @@
 
 <div class="mt-4">
   <% if @post.image.present? %>
-  <%# 変更: パーシャルを使用 %>
   <%= render "posts/image", post: @post %>
   <% else %>
   <%= image_tag 'walk_top.jpg', alt: t('posts.show.default_image_alt'), class: "w-full h-auto rounded-lg shadow-md" %>
