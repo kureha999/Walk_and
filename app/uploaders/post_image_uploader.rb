@@ -1,6 +1,6 @@
 class PostImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
-  after :cache, :set_cloudinary_asset_id
+  after :store, :set_cloudinary_asset_id
 
   def size_range
     1.byte..6.megabytes

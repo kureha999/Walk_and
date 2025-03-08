@@ -4,4 +4,5 @@ Cloudinary.config do |config|
   config.api_secret = ENV["CLOUDINARY_API_SECRET"]
   config.secure = true
   config.cdn_subdomain = true
+  config.enhance_image_tag = true
 end
