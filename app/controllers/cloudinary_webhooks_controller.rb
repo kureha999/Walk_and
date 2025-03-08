@@ -46,12 +46,12 @@ class CloudinaryWebhooksController < ApplicationController
         Rails.logger.debug "Presigned URL: #{presigned_url}"
 
         post.update(s3_image_url: presigned_url.to_s)
+        post.reload
 
         Turbo::StreamsChannel.broadcast_replace_to(
           "posts",
           target: "post_image_#{post.id}",
-          partial: "posts/image",
-          locals: { post: post }
+          html: ApplicationController.render(partial: "posts/image", locals: { post: post })
         )
 
       else

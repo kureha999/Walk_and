@@ -9,7 +9,7 @@
       </div>
       <div style="margin-top: 8px;">
         <% if post.image.present? %>
-        <%= link_to post_path(post, previous_url: request.original_url) do %>
+        <%=link_to post_path(post, previous_url: request.original_url) do %>
         <%= render "posts/image", post: post %>
         <% end %>
         <% else %>
