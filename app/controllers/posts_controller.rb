@@ -16,13 +16,11 @@ class PostsController < ApplicationController
     Rails.logger.debug "Post params: #{post_params.inspect}"
     Rails.logger.debug "Creating post with params: #{post_params.inspect}"
 
-
-    image_temp = @post.image
-    @post.image = nil
+    # image_temp = @post.image
+    # @post.image = nil
 
     if @post.save
-
-      @post.update(image: image_temp)
+      # @post.update(image: image_temp)
       redirect_to posts_path, notice: t("controller.post.create")
     else
       flash.now[:alert] = t("controller.post.alert.create")

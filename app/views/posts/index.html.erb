@@ -10,7 +10,7 @@
       <div style="margin-top: 8px;">
         <% if post.image.present? %>
         <%= link_to post_path(post, previous_url: request.original_url) do %>
-        <%= image_tag post.image.url , class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
+        <%= render "posts/image", post: post %>
         <% end %>
         <% else %>
         <%= image_tag 'walk_top.jpg', alt: t('posts.index.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>

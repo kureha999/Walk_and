@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_05_035704) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_07_191515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_035704) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.string "cloudinary_asset_id"
+    t.text "s3_image_url"
     t.index ["cloudinary_asset_id"], name: "index_posts_on_cloudinary_asset_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
