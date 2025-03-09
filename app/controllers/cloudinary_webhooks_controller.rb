@@ -51,7 +51,8 @@ class CloudinaryWebhooksController < ApplicationController
         Turbo::StreamsChannel.broadcast_replace_to(
           "posts",
           target: "post_image_#{post.id}",
-          html: ApplicationController.render(partial: "posts/image", locals: { post: post })
+          partial: "posts/image",
+          locals: { post: post }
         )
 
       else
