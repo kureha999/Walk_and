@@ -1,5 +1,1 @@
-<% if post.s3_image_url.present? %>
-<%= image_tag post.s3_image_url, id: "post_image_#{post.id}", class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
-<% else %>
-<%= image_tag post.image.url, id: "post_image_#{post.id}", class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
-<% end %>
+<%= image_tag display_image_post_path(post), id: "post_image_#{post.id}", class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>

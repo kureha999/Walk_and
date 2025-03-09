@@ -1,3 +1,5 @@
+require "aws-sdk-s3"
+
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_post, only: %i[show edit update destroy show_image]
@@ -54,7 +56,7 @@ class PostsController < ApplicationController
       url = signer.presigned_url(:get_object, bucket: "walk-and", key: URI.parse(@post.s3_image_url).path[1..-1], expires_in: 3600)
       redirect_to url, allow_other_host: true
     else
-      redirect_to ActionController::Base.helpers.asset_path("walk_and.jpg")
+      redirect_to @post.image.url, allow_other_host: true
     end
   end
 
