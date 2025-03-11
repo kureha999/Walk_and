@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def likes
     session[:previous_url] = mypage_likes_path
-    @liked_posts = Post.joins(:likes).where(likes: { user_id: current_user.id }).order("likes.created_at DESC").page(params[:page])
+    @posts = Post.joins(:likes).where(likes: { user_id: current_user.id }).order("likes.created_at DESC").page(params[:page])
     @is_likes_view = true
     render :show
   end
