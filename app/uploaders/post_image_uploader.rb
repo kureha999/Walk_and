@@ -18,11 +18,9 @@ class PostImageUploader < CarrierWave::Uploader::Base
     %w[jpg jpeg gif png heic]
   end
 
-  process resize_to_fit: [ 600, 600 ]
   process convert: "jpg"
 
   private
-
 
   def set_cloudinary_asset_id(file)
     Rails.logger.debug "set_cloudinary_asset_id called"
