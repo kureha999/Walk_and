@@ -1,8 +1,8 @@
 <% content_for :title, t('posts.index.title') %>
 <h1 class="text-center text-2xl font-bold"><%= t('posts.index.header') %></h1>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto;">
   <% @posts.each do |post| %>
-  <div style="padding: 16px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 100%;">
+  <div style="padding: 16px 0; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 100%; box-sizing: border-box;">
     <div style="padding: 0 24px;">
       <div class="bg-background-blue text-logo-brown" style=" font-weight: bold; font-size: 20px; text-align: center; padding: 8px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
         <%= post.user.name %>
@@ -10,8 +10,9 @@
       <div style="margin-top: 8px;">
         <% if post.image.present? %>
         <%= link_to post_path(post, previous_url: request.original_url) do %>
-        <div style="width: 350px; height: 350px; overflow: hidden; display:flex; justify-content: center; align-items: center; border-radius: 15px;">
-          <%= image_tag display_image_post_path(post), id: "post_image_#{post.id}", style: "max-width: none; max-height: none; width: auto; height: auto; min-width: 100%; min-height: 100%; border-radius: 15px;" %>
+        <div style="position: relative; width: 100%; padding-top: 100%; overflow: hidden; border-radius: 10px;">
+          <%# 変更: min-width, min-height を 100% に設定 %>
+          <%= image_tag display_image_post_path(post), id: "post_image_#{post.id}", style: "position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%; object-fit: cover;" %>
         </div>
         <% end %>
         <% else %>
