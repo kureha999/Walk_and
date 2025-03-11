@@ -1,5 +1,5 @@
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
-  <% posts.each do |post| %>
+  <% @posts.each do |post| %>
   <div style="padding: 16px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 100%;">
     <div style="padding: 0 24px;">
       <div class="bg-background-blue text-logo-brown" style=" font-weight: bold; font-size: 20px; text-align: center; padding: 8px; border-radius: 8px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
@@ -8,7 +8,9 @@
       <div style="margin-top: 8px;">
         <% if post.image.present? %>
         <%= link_to post_path(post, previous_url: session[:previous_url]) do %>
-        <%= image_tag post.image.url, class: "rounded-lg shadow-lg w-full", style: "border: 6px solid #b1cdbb;" %>
+        <div style="width: 350px; height: 350px; overflow: hidden; display: flex; justify-content: center; align-items: center; border-radius: 15px;">
+          <%= image_tag display_image_post_path(post), id: "post_image_#{post.id}", style: "max-width: none; max-height: none; width: auto; height: auto; min-width: 100%; min-height: 100%; border-radius: 15px;" %>
+        </div>
         <% end %>
         <% else %>
         <%= image_tag 'walk_top.jpg', alt: t('users.post_list.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>
@@ -17,11 +19,11 @@
       <% unless @is_likes_view %>
       <div class="bg-logo-brown text-text-cream px-4 py-2 mt-2 flex justify-end">
         <%= link_to t('users.post_list.edit'), edit_post_path(post), class: "underline mr-4" %>
-        <%= link_to t('users.post_list.delete'), post_path(post), method: :delete, data: { confirm: t('users.post_list.delete_confirm'), turbo: false }, class: "underline mr-4" %>
+        <%= link_to t('users.post_list.delete'), post_path(post), data: {method: :delete, turbo_confirm:  t('users.post_list.delete_confirm') }, class: "underline mr-4" %>
       </div>
       <% end %>
     </div>
   </div>
   <% end %>
 </div>
-<%= paginate posts %>
+<%= paginate @posts %>
