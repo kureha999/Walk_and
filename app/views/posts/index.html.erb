@@ -9,8 +9,10 @@
       </div>
       <div style="margin-top: 8px;">
         <% if post.image.present? %>
-        <%=link_to post_path(post, previous_url: request.original_url) do %>
-        <%= render "posts/image", post: post %>
+        <%= link_to post_path(post, previous_url: request.original_url) do %>
+        <div style="width: 350px; height: 350px; overflow: hidden; display:flex; justify-content: center; align-items: center; border-radius: 15px;">
+          <%= image_tag display_image_post_path(post), id: "post_image_#{post.id}", style: "max-width: none; max-height: none; width: auto; height: auto; min-width: 100%; min-height: 100%; border-radius: 15px;" %>
+        </div>
         <% end %>
         <% else %>
         <%= image_tag 'walk_top.jpg', alt: t('posts.index.default_image_alt'), class: "rounded-lg shadow-lg w-full" %>
