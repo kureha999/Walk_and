@@ -54,7 +54,7 @@
 
 
 『名前』『メールアドレス』『パスワード』『確認用パスワード』を入力してユーザー登録を行います。ユーザー登録後は、自動的にログイン処理が行われるようになっており、そのまま直ぐにサービスを利用する事が出来ます。<rb>
-また、LINEアカウントを用いてLINEログインを行う事も可能です。 walk@example.com
+また、LINEアカウントを用いてLINEログインを行う事も可能です。
 
 
 
@@ -67,9 +67,9 @@
 | フロントエンド | Rails7.2.2, TailwindCSS, Stimulus  |
 | バックエンド   | Ruby3.3.6(Rails7.2.2)   |
 | データベース   | PostgreSQL,    |
-| インフラ        | Render.com, AWS S3        |
+| インフラ        | Render.com, AWS S3, Cloudinary       |
 |開発環境        | Docker     |
-|API       | LINE API   |
+|API       | LINE API, Cloudinary   |
 
 ## 画面遷移図
 
