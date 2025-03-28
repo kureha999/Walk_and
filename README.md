@@ -1,9 +1,9 @@
 # サービス名: Walk&
 
 ## サービスURL: https://walk-and.net
-<a href="https://gyazo.com/1887286178369076a51f120aea2d688b">
-  <img src="https://i.gyazo.com/1887286178369076a51f120aea2d688b.png" alt="Image from Gyazo" width="500" />
-</a>
+
+
+<img src="https://github.com/user-attachments/assets/b82f02ff-f562-4a9f-920e-3292b0150420" alt="titleのコピー" width="600">
 
 ## サービス概要
 **Walk&** は,毎日のワンちゃんのお散歩と餌のあげた時間を記録しながら、
@@ -62,21 +62,24 @@
     <td align="center">LINEログイン画面<br><a href="https://gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883"><img src="https://i.gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883.png" alt="Image from Gyazo"/></a></td>
     <td align="center">投稿一覧画面<br><a href="https://gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a"><img src="https://i.gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a.png" alt="Image from Gyazo"/></a></td>
   </tr>
-  
-  <tr>
-    <td align="center">コメント<br><a href="https://gyazo.com/0cd04ff17ca8ac4edfe6de5879a2451c"><img src="https://i.gyazo.com/0cd04ff17ca8ac4edfe6de5879a2451c.png" alt="Image from Gyazo"/></a></td>
-    <td align="center">投稿画面<br><a href="https://gyazo.com/f2136d55d7ea7feeafe73f731da5808b"><img src="https://i.gyazo.com/f2136d55d7ea7feeafe73f731da5808b.png" alt="Image from Gyazo"/></a></td>
-  </tr>
-  
-  <tr>
-    <td align="center">マイページ<br><a href="https://gyazo.com/24a6d230bb78e94b69b0255e9a9840e4"><img src="https://i.gyazo.com/24a6d230bb78e94b69b0255e9a9840e4.png" alt="Image from Gyazo"/></a></td>
-    <td align="center">記録画面<br><a href="https://gyazo.com/978f2ee7e8ddebd34724beee8c3e89c5"><img src="https://i.gyazo.com/978f2ee7e8ddebd34724beee8c3e89c5.png" alt="Image from Gyazo"/></a></td>
-  </tr>
 
-  <tr>
-    <td align="center">記録画面詳細<br><a href="https://gyazo.com/0938657e7a45c6114ec49329e85fa1e5"><img src="https://i.gyazo.com/0938657e7a45c6114ec49329e85fa1e5.png" alt="Image from Gyazo"/></a></td>
-    <td align="center">LINEからの登録<br><a href="https://gyazo.com/c61a763f2436f323c661dc24da33145d"><img src="https://i.gyazo.com/c61a763f2436f323c661dc24da33145d.png" alt="Image from Gyazo"/></a></td>
-  </tr>
+
+<tr>
+  <td align="center">コメント<br>  <img src="https://github.com/user-attachments/assets/62de2983-1e1c-4970-800d-e721a9643b7c" alt="commentのコピー" width="500"></td>
+  <td align="center">投稿画面<br><a href="https://gyazo.com/f2136d55d7ea7feeafe73f731da5808b"><img src="https://i.gyazo.com/f2136d55d7ea7feeafe73f731da5808b.png" alt="Image from Gyazo" /></a></td>
+</tr>
+
+
+  
+<tr>
+  <td align="center">マイページ<br><a href="https://gyazo.com/24a6d230bb78e94b69b0255e9a9840e4"><img src="https://i.gyazo.com/24a6d230bb78e94b69b0255e9a9840e4.png" alt="Image from Gyazo"/></a></td>
+  <td align="center">記録画面<br><a href="https://gyazo.com/978f2ee7e8ddebd34724beee8c3e89c5"><img src="https://github.com/user-attachments/assets/edaf8fdb-eed8-47e7-aee5-df5eef86fa72" alt="memoのコピー" width="500"/></a></td>
+</tr>
+
+<tr>
+  <td align="center">記録画面詳細<br><a href="https://gyazo.com/0938657e7a45c6114ec49329e85fa1e5"><img src="https://i.gyazo.com/0938657e7a45c6114ec49329e85fa1e5.png" alt="Image from Gyazo"/></a></td>
+  <td align="center">LINEからの登録<br><a href="https://gyazo.com/c61a763f2436f323c661dc24da33145d"><img src="https://github.com/user-attachments/assets/9120831d-880b-4145-b41f-2b0e9047c8f7" alt="IMG_0409"　width="500"/></a></td>
+</tr>
 
 
 </table>
@@ -98,9 +101,8 @@
 
 ## 画面遷移図
 
-<a href="https://gyazo.com/556465c5d3a9b266db8e17918e9e17f4">
-  <img src="https://i.gyazo.com/556465c5d3a9b266db8e17918e9e17f4.png" alt="Image from Gyazo" width="500" />
-</a>
+<img width="868" alt="a26e9785b211afd26303f153e35665c9" src="https://github.com/user-attachments/assets/516bd00d-19e1-46a9-872f-f3c9ee474dde" />
+
 
 ## ER図
 
