@@ -52,33 +52,34 @@
 ## 機能紹介
 #### 主な機能画像
 
+
+
 <table>
-  <tr>
-    <td align="center">お問い合わせ画面<br><a href="https://gyazo.com/1461176bed04bbb3890a3616d9b507b9"><img src="https://i.gyazo.com/1461176bed04bbb3890a3616d9b507b9.png" alt="お問い合わせ"></a></td>
-    <td align="center">ログイン画面<br><a href="https://gyazo.com/db7f6ad414cdd384b2979b065c392a7f"><img src="https://i.gyazo.com/db7f6ad414cdd384b2979b065c392a7f.png" alt="ログイン画面"></a></td>
-  </tr>
+<tr>
+  <td align="center">お問い合わせ画面<br><img width="300" alt="お問い合わせ" src="https://github.com/user-attachments/assets/fc7dc100-78cc-42af-adb1-6b10601d900b" /></td>
+  <td align="center">ログイン画面<br><img width="300" src="https://github.com/user-attachments/assets/3ab41631-8f7a-4e95-b5bc-6c608c238b9c" alt="ログイン画面"></td>
+</tr>
   
   <tr>
-    <td align="center">LINEログイン画面<br><a href="https://gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883"><img src="https://i.gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883.png" alt="Image from Gyazo"/></a></td>
-    <td align="center">投稿一覧画面<br><a href="https://gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a"><img src="https://i.gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a.png" alt="Image from Gyazo"/></a></td>
+    <td align="center">LINEログイン画面<br><a href="https://gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883"><img width="300" src="https://i.gyazo.com/8842e8b71c27b1ab7ffffcd4e1b1a883.png" alt="Image from Gyazo"/></a></td>
+    <td align="center">投稿一覧画面<br><a href="https://gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a"><img width="300" src="https://i.gyazo.com/6a9da6f8a8ca6015d6c0fd8048ad644a.png" alt="Image from Gyazo"/></a></td>
   </tr>
 
 
 <tr>
-  <td align="center">コメント<br>  <img src="https://github.com/user-attachments/assets/62de2983-1e1c-4970-800d-e721a9643b7c" alt="commentのコピー" width="500"></td>
-  <td align="center">投稿画面<br><a href="https://gyazo.com/f2136d55d7ea7feeafe73f731da5808b"><img src="https://i.gyazo.com/f2136d55d7ea7feeafe73f731da5808b.png" alt="Image from Gyazo" /></a></td>
+  <td align="center">コメント<br>  <img width="300" src="https://github.com/user-attachments/assets/62de2983-1e1c-4970-800d-e721a9643b7c" alt="commentのコピー"></td>
+  <td align="center">投稿画面<br><a href="https://gyazo.com/f2136d55d7ea7feeafe73f731da5808b"><img width="300" src="https://github.com/user-attachments/assets/b641cb5c-af45-4e19-af76-19d6401f6b87" alt="投稿画面" /></a></td>
 </tr>
-
 
   
 <tr>
-  <td align="center">マイページ<br><a href="https://gyazo.com/24a6d230bb78e94b69b0255e9a9840e4"><img src="https://i.gyazo.com/24a6d230bb78e94b69b0255e9a9840e4.png" alt="Image from Gyazo"/></a></td>
-  <td align="center">記録画面<br><a href="https://gyazo.com/978f2ee7e8ddebd34724beee8c3e89c5"><img src="https://github.com/user-attachments/assets/edaf8fdb-eed8-47e7-aee5-df5eef86fa72" alt="memoのコピー" width="500"/></a></td>
+  <td align="center">マイページ<br><a href="https://gyazo.com/24a6d230bb78e94b69b0255e9a9840e4"><img width="300" src="https://github.com/user-attachments/assets/0d55c2e4-2077-4ae4-91ff-4f1a51783248" alt="mypage"/></a></td>
+  <td align="center">記録画面<br><a href="https://gyazo.com/978f2ee7e8ddebd34724beee8c3e89c5"><img width="300" src="https://github.com/user-attachments/assets/edaf8fdb-eed8-47e7-aee5-df5eef86fa72" alt="memoのコピー"/></a></td>
 </tr>
 
 <tr>
-  <td align="center">記録画面詳細<br><a href="https://gyazo.com/0938657e7a45c6114ec49329e85fa1e5"><img src="https://i.gyazo.com/0938657e7a45c6114ec49329e85fa1e5.png" alt="Image from Gyazo"/></a></td>
-  <td align="center">LINEからの登録<br><a href="https://gyazo.com/c61a763f2436f323c661dc24da33145d"><img src="https://github.com/user-attachments/assets/9120831d-880b-4145-b41f-2b0e9047c8f7" alt="IMG_0409"　width="500"/></a></td>
+  <td align="center">記録画面詳細<br><a href="https://gyazo.com/0938657e7a45c6114ec49329e85fa1e5"><img width="300" src="https://github.com/user-attachments/assets/bb6ce654-81bc-4efc-806a-43b3e393ef4f" alt="記録詳細"/></a></td>
+  <td align="center">LINEからの登録<br><a href="https://gyazo.com/c61a763f2436f323c661dc24da33145d"><img width="300" src="https://github.com/user-attachments/assets/9120831d-880b-4145-b41f-2b0e9047c8f7" alt="IMG_0409"/></a></td>
 </tr>
 
 
