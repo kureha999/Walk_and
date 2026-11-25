@@ -1,6 +1,8 @@
 # サービス名: Walk&
 
-## サービスURL: https://walk-and.net
+> [!NOTE]
+> 本サービスは本番運用を終了しました(旧URL: https://walk-and.net)。\
+> 現在は開発環境(Docker)で動作確認できます。手順は [開発環境の起動](#開発環境の起動) を参照してください。
 
 
 <img src="https://github.com/user-attachments/assets/b82f02ff-f562-4a9f-920e-3292b0150420" alt="titleのコピー" width="600">
@@ -95,10 +97,41 @@
 |----------------|--------------------------|
 | フロントエンド | Rails7.2.2, TailwindCSS, Stimulus  |
 | バックエンド   | Ruby3.3.6(Rails7.2.2)   |
-| データベース   | PostgreSQL,    |
+| データベース   | PostgreSQL |
 | インフラ        | Render.com, AWS S3, Cloudinary       |
-|開発環境        | Docker     |
+| 開発環境        | Docker, Docker Compose |
 |API       | LINE API, Cloudinary   |
+
+## 開発環境の起動
+
+Docker Desktop が必要です。Cloudinary / AWS S3 の認証情報は不要で、画像はローカル(`public/uploads`)に保存されます。
+
+```bash
+docker compose build
+docker compose run --rm --no-deps web yarn install   # 初回のみ(node_modules)
+docker compose up
+# → http://localhost:3000
+```
+
+ユーザー作成(ログイン用):
+
+```bash
+docker compose exec web bin/rails runner 'User.create!(name: "デモユーザー", email: "demo@example.com", password: "password123")'
+```
+
+#### 動作デモ(HEIC画像の投稿)
+
+iPhoneで撮影したHEIC画像を投稿すると、JPEGに変換されて表示されます。
+
+<img src="docs/images/walk_and_heic_upload_demo.gif" alt="HEIC画像の投稿デモ" width="600">
+
+| 投稿一覧 | 投稿詳細 |
+|---|---|
+| <img src="docs/images/posts_index.jpg" width="400"> | <img src="docs/images/post_show_heic.jpg" width="400"> |
+
+#### HEIC画像について
+- 開発環境の Docker イメージ(Debian bookworm)標準の libheif 1.15 は、iPhone撮影のHEICを読めず変換に失敗するため、`Dockerfile.dev` で bookworm-backports の新しい libheif を導入しています。
+- 本番(Cloudinary)の場合は環境変数 `CLOUDINARY_CLOUD_NAME` 等を設定するとCloudinary経由の変換になります。未設定時はMiniMagickで変換します。
 
 ## 画面遷移図
 

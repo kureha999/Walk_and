@@ -55,6 +55,8 @@ class PostsController < ApplicationController
       signer = Aws::S3::Presigner.new(client: s3.client)
       url = signer.presigned_url(:get_object, bucket: "walk-and", key: URI.parse(@post.s3_image_url).path[1..-1], expires_in: 3600)
       redirect_to url, allow_other_host: true
+    elsif @post.image.present? && !PostImageUploader.cloudinary?
+      redirect_to @post.image.url
     else
       redirect_to ActionController::Base.helpers.asset_path("walk_and.jpg"), allow_other_host: true
     end
