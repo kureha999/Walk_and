@@ -1,6 +1,17 @@
 class PostImageUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
-  after :store, :set_cloudinary_asset_id
+  # 本番運用は終了。Cloudinaryの認証情報が無い環境(開発など)ではローカル保存+MiniMagickでJPEG変換する
+  def self.cloudinary?
+    ENV["CLOUDINARY_CLOUD_NAME"].present?
+  end
+
+  if cloudinary?
+    include Cloudinary::CarrierWave
+    after :store, :set_cloudinary_asset_id
+  else
+    include CarrierWave::MiniMagick
+    storage :file
+    process :auto_orient_and_resize
+  end
 
   def size_range
     1.byte..6.megabytes
@@ -21,6 +32,14 @@ class PostImageUploader < CarrierWave::Uploader::Base
   process convert: "jpg"
 
   private
+
+  def auto_orient_and_resize
+    manipulate! do |img|
+      img.auto_orient
+      img.resize "1600x1600>"
+      img
+    end
+  end
 
   def set_cloudinary_asset_id(file)
     Rails.logger.debug "set_cloudinary_asset_id called"

@@ -40,3 +40,5 @@
 /node_modules
 
 vendor/bundle/
+# Ignore CarrierWave local uploads (development)
+/public/uploads/*
